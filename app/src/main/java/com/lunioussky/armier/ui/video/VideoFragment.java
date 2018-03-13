@@ -1,4 +1,4 @@
-package com.lunioussky.armier.ui.fragment;
+package com.lunioussky.armier.ui.video;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -13,10 +13,10 @@ import android.widget.ImageView;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.bottomBar.BottomBarItem;
 import com.lunioussky.armier.bottomBar.BottomBarLayout;
-import com.lunioussky.armier.ui.fragment.HomeFragment;
-import com.lunioussky.armier.ui.fragment.MineFragment;
-import com.lunioussky.armier.ui.fragment.VideoFragment;
-import com.lunioussky.armier.ui.fragment.NewsFragment;
+import com.lunioussky.armier.ui.home.HomeFragment;
+import com.lunioussky.armier.ui.mine.MineFragment;
+import com.lunioussky.armier.ui.video.VideoFragment;
+import com.lunioussky.armier.ui.news.NewsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
