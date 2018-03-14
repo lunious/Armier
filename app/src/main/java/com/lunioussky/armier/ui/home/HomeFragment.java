@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,10 @@ import java.util.ArrayList;
  */
 
 public class HomeFragment extends Fragment {
+
+    private TabLayout tabLayout;
+    ArrayList<String> tabList = new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -37,47 +43,46 @@ public class HomeFragment extends Fragment {
     }
 
 
-    ArrayList<String> tabList = new ArrayList<>();
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        if (tabList.size() > 0) {
+            tabList.clear();
+        }
+    }
 
     private void initView() {
-        //引用tablayout
 
-        tabList.add("热点");
-        tabList.add("娱乐");
-        tabList.add("体育");
-        tabList.add("最新");
-        tabList.add("推荐");
-        tabList.add("八卦");
-        tabList.add("热点");
-        tabList.add("娱乐");
-        tabList.add("体育");
-        tabList.add("最新");
-        tabList.add("推荐");
-        tabList.add("八卦");
+        tabLayout = getView().findViewById(R.id.tab_layout);
 
 
-        TabLayout tabLayout = getView().findViewById(R.id.tab_layout);
+        //初始化标题以及Fragment内容
+        for (int i = 0; i < 10; i++) {
+            tabList.add("新闻" + i);
+        }
+
 
         for (int i = 0; i < tabList.size(); i++) {
             tabLayout.addTab(tabLayout.newTab().setText(tabList.get(i)));
         }
-
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) {
                 tab.setCustomView(getTabView(i));
             }
+
         }
 
-
         updateTabTextView(tabLayout.getTabAt(tabLayout.getSelectedTabPosition()), true);
-
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 updateTabTextView(tab, true);
+                Log.d("IUAUSJBDASDA", tab.getCustomView() + "");
+
 
             }
 
