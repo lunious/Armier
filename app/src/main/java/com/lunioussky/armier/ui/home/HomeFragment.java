@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,7 @@ import android.widget.TextView;
 import com.lunioussky.armier.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 11645 on 2018/3/13.
@@ -24,7 +24,10 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private TabLayout tabLayout;
-    ArrayList<String> tabList = new ArrayList<>();
+    private ViewPager resultVp = null;
+
+    private final List<String> mList = new ArrayList<String>();
+    private ResultFragmentAdapter mAdapter;
 
 
     @Nullable
@@ -47,25 +50,34 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
 
-        if (tabList.size() > 0) {
-            tabList.clear();
+        if (mList.size() > 0) {
+            mList.clear();
         }
     }
 
     private void initView() {
 
         tabLayout = getView().findViewById(R.id.tab_layout);
-
+        resultVp = getView().findViewById(R.id.vp_view);
 
         //初始化标题以及Fragment内容
-        for (int i = 0; i < 10; i++) {
-            tabList.add("新闻" + i);
-        }
+//        for (int i = 0; i < 10; i++) {
+//            mList.add("新闻" + i);
+//        }
+        mList.add("最新标讯");
+        mList.add("勘察");
+        mList.add("设计");
+        mList.add("施工");
+        mList.add("新闻");
+        mList.add("政府采购");
+        mList.add("采购");
+        mList.add("行业动态");
+        mList.add("污水");
 
+        mAdapter = new ResultFragmentAdapter(mList, getFragmentManager());
+        resultVp.setAdapter(mAdapter);
+        tabLayout.setupWithViewPager(resultVp);
 
-        for (int i = 0; i < tabList.size(); i++) {
-            tabLayout.addTab(tabLayout.newTab().setText(tabList.get(i)));
-        }
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
@@ -75,14 +87,13 @@ public class HomeFragment extends Fragment {
 
         }
 
+
         updateTabTextView(tabLayout.getTabAt(tabLayout.getSelectedTabPosition()), true);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 updateTabTextView(tab, true);
-                Log.d("IUAUSJBDASDA", tab.getCustomView() + "");
-
 
             }
 
@@ -96,13 +107,15 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+
     }
 
 
     private View getTabView(int currentPosition) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.tab_item, null);
         TextView textView = view.findViewById(R.id.tab_item_textview);
-        textView.setText(tabList.get(currentPosition));
+        textView.setText(mList.get(currentPosition));
         return view;
     }
 
@@ -119,6 +132,9 @@ public class HomeFragment extends Fragment {
             tabUnSelect.setText(tab.getText());
             tabUnSelect.setTextSize(16);
             tabUnSelect.setTextColor(getResources().getColor(R.color.tab_normal_color));
+
         }
+
+
     }
 }
