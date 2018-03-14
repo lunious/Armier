@@ -9,10 +9,9 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        app:tabIndicatorColor="@color/red"
         app:tabIndicatorHeight="0dp"
-        app:tabSelectedTextColor="@color/red"
-        app:tabTextColor="@color/selector_grey" />
+        app:tabMode="scrollable"
+        app:tabBackground="@null" />
 
 
 </LinearLayout>

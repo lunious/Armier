@@ -48,15 +48,19 @@ public class HomeFragment extends Fragment {
         tabList.add("最新");
         tabList.add("推荐");
         tabList.add("八卦");
+        tabList.add("热点");
+        tabList.add("娱乐");
+        tabList.add("体育");
+        tabList.add("最新");
+        tabList.add("推荐");
+        tabList.add("八卦");
 
 
         TabLayout tabLayout = getView().findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText(tabList.get(0)));
-        tabLayout.addTab(tabLayout.newTab().setText(tabList.get(1)));
-        tabLayout.addTab(tabLayout.newTab().setText(tabList.get(2)));
-        tabLayout.addTab(tabLayout.newTab().setText(tabList.get(3)));
-        tabLayout.addTab(tabLayout.newTab().setText(tabList.get(4)));
-        tabLayout.addTab(tabLayout.newTab().setText(tabList.get(5)));
+
+        for (int i = 0; i < tabList.size(); i++) {
+            tabLayout.addTab(tabLayout.newTab().setText(tabList.get(i)));
+        }
 
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
@@ -103,7 +107,7 @@ public class HomeFragment extends Fragment {
             //选中加粗
             TextView tabSelect = tab.getCustomView().findViewById(R.id.tab_item_textview);
             tabSelect.setText(tab.getText());
-            tabSelect.setTextSize(17);
+            tabSelect.setTextSize(18);
             tabSelect.setTextColor(getResources().getColor(R.color.red));
         } else {
             TextView tabUnSelect = tab.getCustomView().findViewById(R.id.tab_item_textview);
