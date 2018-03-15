@@ -125,7 +125,7 @@ public class HomeFragment extends Fragment {
             //选中加粗
             TextView tabSelect = tab.getCustomView().findViewById(R.id.tab_item_textview);
             tabSelect.setText(tab.getText());
-            tabSelect.setTextSize(18);
+            tabSelect.setTextSize(20);
             tabSelect.setTextColor(getResources().getColor(R.color.red));
         } else {
             TextView tabUnSelect = tab.getCustomView().findViewById(R.id.tab_item_textview);
