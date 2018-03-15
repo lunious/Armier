@@ -12,6 +12,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
 import com.lunioussky.armier.R;
+import com.lunioussky.armier.base.BaseActivity;
 import com.lunioussky.armier.bottomBar.BottomBarItem;
 import com.lunioussky.armier.bottomBar.BottomBarLayout;
 import com.lunioussky.armier.ui.home.HomeFragment;
@@ -22,11 +23,13 @@ import com.lunioussky.armier.ui.news.NewsFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.yokeyword.fragmentation.ISupportActivity;
+
 /**
  * Created by 11645 on 2018/3/13.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity{
 
     private List<Fragment> mFragment = new ArrayList<>();
     private BottomBarLayout mBottomBarLayout;

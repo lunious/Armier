@@ -3,6 +3,7 @@ package com.lunioussky.armier.app;
 import android.app.Application;
 
 import com.lzy.okgo.OkGo;
+import com.zhy.changeskin.SkinManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +20,9 @@ public class App extends Application {
         super.onCreate();
 
         okgo();
+
+        //初始化SkinManager
+        SkinManager.getInstance().init(this);
     }
 
     private void okgo() {

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lunioussky.armier.R;
+import com.lunioussky.armier.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
  * Created by 11645 on 2018/3/13.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
 
     private TabLayout tabLayout;
     private ViewPager resultVp = null;
