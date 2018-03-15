@@ -5,8 +5,6 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
@@ -29,7 +27,7 @@ import me.yokeyword.fragmentation.ISupportActivity;
  * Created by 11645 on 2018/3/13.
  */
 
-public class MainActivity extends BaseActivity{
+public class MainActivity extends BaseActivity {
 
     private List<Fragment> mFragment = new ArrayList<>();
     private BottomBarLayout mBottomBarLayout;
