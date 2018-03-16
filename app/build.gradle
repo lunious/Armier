@@ -34,8 +34,6 @@ dependencies {
     compile 'com.lzy.net:okgo:3.0.4'
     //fastjson
     compile 'com.alibaba:fastjson:1.2.38'
-    //changeskin
-    compile 'com.zhy:changeskin:4.0.2'
     //Fragmentation依赖
     compile 'me.yokeyword:fragmentation:1.3.2'
     compile 'me.yokeyword:fragmentation-swipeback:1.3.2'

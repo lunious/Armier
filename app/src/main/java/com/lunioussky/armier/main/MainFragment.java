@@ -47,7 +47,6 @@ public class MainFragment extends BaseFragment {
         mFragment.add(new VideoFragment());
         mFragment.add(new NewsFragment());
         mFragment.add(new MineFragment());
-
         // 默认显示第一页
         changeFragment(0);
     }

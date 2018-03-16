@@ -6,9 +6,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.zhy.changeskin.SkinManager;
-
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 
@@ -47,18 +44,7 @@ public abstract class BaseFragment extends SwipeBackFragment {
 
     public abstract void initEvent();
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        //换肤功能页面注册
-        SkinManager.getInstance().register(getActivity());
-    }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        //换肤功能注销
-        SkinManager.getInstance().unregister(getActivity());
-    }
+
 
 }

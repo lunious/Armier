@@ -8,32 +8,14 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/status_bar_height"
-        android:background="@drawable/skin_bg"
-        android:tag="skin:skin_bg:background" />
+        android:background="@color/main_theme" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:tag="skin:main_theme:textColor"
-        android:text="视频"
-        android:textColor="@color/main_theme"
-        android:textSize="30sp" />
+        android:text="视频" />
 
 
-    <Button
-        android:id="@+id/btn_red"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="点我换成红色" />
-
-    <Button
-        android:id="@+id/btn_blue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="点我换成蓝色" />
 
 </LinearLayout>
