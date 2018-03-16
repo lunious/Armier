@@ -14,9 +14,9 @@
 
     <!--默认主题-->
     <color name="main_theme">#3F51B5</color>
-    <!--蓝色主题默认-->
+    <!--日间主题-->
     <color name="main_theme_blue">#3F51B5</color>
-    <!--红色主题-->
+    <!--夜间主题-->
     <color name="main_theme_red">#D33D3C</color>
 
 </resources>

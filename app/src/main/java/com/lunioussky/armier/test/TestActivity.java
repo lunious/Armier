@@ -2,6 +2,7 @@ package com.lunioussky.armier.test;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

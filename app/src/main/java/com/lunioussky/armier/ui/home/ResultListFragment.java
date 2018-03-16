@@ -18,26 +18,31 @@ import com.lunioussky.armier.base.BaseFragment;
 public class ResultListFragment extends BaseFragment {
 
 
-
     private String mTitle = null;
 
     private TextView tvTab = null;
 
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home_tab,container,false);
-        return view;
+    public Object setLayout() {
+        return R.layout.fragment_home_tab;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+    public void initView() {
         tvTab = getView().findViewById(R.id.tv_tab);
+    }
+
+    @Override
+    public void initData() {
         tvTab.setText(mTitle);
     }
+
+    @Override
+    public void initEvent() {
+
+    }
+
 
     public static ResultListFragment getInstance(String title) {
         ResultListFragment sf = new ResultListFragment();

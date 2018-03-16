@@ -1,14 +1,10 @@
 package com.lunioussky.armier.ui.home;
 
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lunioussky.armier.R;
@@ -30,40 +26,19 @@ public class HomeFragment extends BaseFragment {
     private ResultFragmentAdapter mAdapter;
 
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        return view;
+    public Object setLayout() {
+        return R.layout.fragment_home;
     }
 
-
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        initView();
-    }
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-        if (mList.size() > 0) {
-            mList.clear();
-        }
-    }
-
-    private void initView() {
-
+    public void initView() {
         tabLayout = getView().findViewById(R.id.tab_layout);
         resultVp = getView().findViewById(R.id.vp_view);
+    }
 
-        //初始化标题以及Fragment内容
-//        for (int i = 0; i < 10; i++) {
-//            mList.add("新闻" + i);
-//        }
+    @Override
+    public void initData() {
         mList.add("最新标讯");
         mList.add("勘察");
         mList.add("设计");
@@ -77,8 +52,10 @@ public class HomeFragment extends BaseFragment {
         mAdapter = new ResultFragmentAdapter(mList, getFragmentManager());
         resultVp.setAdapter(mAdapter);
         tabLayout.setupWithViewPager(resultVp);
+    }
 
-
+    @Override
+    public void initEvent() {
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) {
@@ -86,7 +63,6 @@ public class HomeFragment extends BaseFragment {
             }
 
         }
-
 
         updateTabTextView(tabLayout.getTabAt(tabLayout.getSelectedTabPosition()), true);
 
@@ -107,8 +83,6 @@ public class HomeFragment extends BaseFragment {
 
             }
         });
-
-
     }
 
 

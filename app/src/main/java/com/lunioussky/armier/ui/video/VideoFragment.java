@@ -3,7 +3,6 @@ package com.lunioussky.armier.ui.video;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,19 +22,25 @@ public class VideoFragment extends BaseFragment {
     private Button btnRed = null;
     private Button btnBlue = null;
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_video, container, false);
-        return view;
+    public Object setLayout() {
+        return R.layout.fragment_video;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        btnRed = view.findViewById(R.id.btn_red);
-        btnBlue = view.findViewById(R.id.btn_blue);
+    public void initView() {
+        btnRed = getView().findViewById(R.id.btn_red);
+        btnBlue = getView().findViewById(R.id.btn_blue);
+    }
 
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void initEvent() {
         btnRed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,4 +55,5 @@ public class VideoFragment extends BaseFragment {
             }
         });
     }
+
 }
