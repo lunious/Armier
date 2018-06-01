@@ -39,15 +39,10 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initData() {
-        mList.add("最新标讯");
-        mList.add("勘察");
-        mList.add("设计");
-        mList.add("施工");
-        mList.add("新闻");
-        mList.add("政府采购");
-        mList.add("采购");
-        mList.add("行业动态");
-        mList.add("污水");
+        mList.add("热点");
+        mList.add("段子");
+        mList.add("视频");
+        mList.add("图片");
 
         mAdapter = new ResultFragmentAdapter(mList, getFragmentManager());
         resultVp.setAdapter(mAdapter);
