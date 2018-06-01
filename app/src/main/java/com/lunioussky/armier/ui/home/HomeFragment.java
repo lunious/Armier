@@ -39,6 +39,11 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initData() {
+
+        if (mList.size() > 0){
+            mList.clear();
+        }
+
         mList.add("热点");
         mList.add("段子");
         mList.add("视频");

@@ -5,11 +5,6 @@
     android:orientation="vertical">
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/status_bar_height"
-        android:background="@color/main_theme" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
