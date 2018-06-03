@@ -1,9 +1,12 @@
-package com.lunioussky.armier.test;
+package com.lunioussky.armier.user;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -11,28 +14,41 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.databinding.TestBind;
+import com.lunioussky.armier.databinding.UserInfoFragmentBind;
+import com.lunioussky.armier.main.BaseFragment;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 
-@Route(path = "/com/TestActivity")
-public class TestActivity extends AppCompatActivity {
+/**
+ * Author: lunious
+ * Date: 2018/6/3 12:46
+ * Description:
+ */
+@Route(path = "/com/UserInfoFragment")
+public class UserInfoFragment extends BaseFragment {
 
-    TestBind bind;
+    private UserInfoFragmentBind bind;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false);
+        return bind.getRoot();
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        bind = DataBindingUtil.setContentView(this, R.layout.activity_test);
-        bind.setMyHandler(new MyHandler());
+    public void initData() {
 
     }
 
+    @Override
+    public void initEvent() {
+        bind.setMyClick(new MyClick());
+    }
 
-    public class MyHandler {
+    public class MyClick {
         public void onClickTo(View view) {
-//            ARouter.getInstance().build("/com/TestActivity").navigation();
             Toast.makeText(view.getContext(), "AKBSDJSBADJASDASDA", Toast.LENGTH_LONG).show();
         }
     }
@@ -67,5 +83,4 @@ public class TestActivity extends AppCompatActivity {
                     }
                 });
     }
-
 }

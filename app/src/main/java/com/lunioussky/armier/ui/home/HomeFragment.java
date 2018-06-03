@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.main.BaseFragment;
 import com.lunioussky.armier.databinding.HomeFragmentBind;
 
 import java.util.ArrayList;

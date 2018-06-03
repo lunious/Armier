@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.main.BaseFragment;
 import com.lunioussky.armier.databinding.MineFragmentBind;
 
 
@@ -42,7 +42,7 @@ public class MineFragment extends BaseFragment {
 
     public class MyClick {
         public void onClickTo(View view) {
-            ARouter.getInstance().build("/com/TestActivity").navigation();
+            ARouter.getInstance().build("/com/UserInfoFragment").navigation();
         }
     }
 }

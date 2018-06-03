@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.main.BaseFragment;
 import com.lunioussky.armier.databinding.NewsFragmentBind;
 
 

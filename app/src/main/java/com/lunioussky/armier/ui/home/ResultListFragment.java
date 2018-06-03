@@ -9,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.main.BaseFragment;
 import com.lunioussky.armier.databinding.HomeTabBind;
-
-import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * Created by 11645 on 2018/3/14.

@@ -14,9 +14,8 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseFragment;
-import com.lunioussky.armier.bottomBar.BottomBarItem;
-import com.lunioussky.armier.bottomBar.BottomBarLayout;
+import com.lunioussky.armier.main.bottomBar.BottomBarItem;
+import com.lunioussky.armier.main.bottomBar.BottomBarLayout;
 import com.lunioussky.armier.databinding.MainFragmentBind;
 import com.lunioussky.armier.ui.home.HomeFragment;
 import com.lunioussky.armier.ui.mine.MineFragment;
@@ -25,8 +24,6 @@ import com.lunioussky.armier.ui.video.VideoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * Created by 11645 on 2018/3/16.
