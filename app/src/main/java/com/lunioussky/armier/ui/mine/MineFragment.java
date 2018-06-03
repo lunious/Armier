@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.lunioussky.armier.R;
@@ -32,15 +31,16 @@ public class MineFragment extends BaseFragment {
     }
 
     @Override
+
     public void initData() {
     }
 
     @Override
     public void initEvent() {
-        bind.setMyHandler(new MyHandler());
+        bind.setMyClick(new MyClick());
     }
 
-    public class MyHandler {
+    public class MyClick {
         public void onClickTo(View view) {
             ARouter.getInstance().build("/com/TestActivity").navigation();
         }

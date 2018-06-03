@@ -24,7 +24,6 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
         bind = DataBindingUtil.setContentView(this, R.layout.activity_test);
         bind.setMyHandler(new MyHandler());
 
