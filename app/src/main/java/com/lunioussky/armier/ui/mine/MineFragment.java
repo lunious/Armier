@@ -42,7 +42,7 @@ public class MineFragment extends BaseFragment {
 
     public class MyClick {
         public void onClickTo(View view) {
-            ARouter.getInstance().build("/com/UserInfoFragment").navigation();
+            ARouter.getInstance().build("/com/UserInfoActivity").navigation();
         }
     }
 }

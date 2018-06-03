@@ -25,7 +25,6 @@ import com.lzy.okgo.model.Response;
  * Date: 2018/6/3 12:46
  * Description:
  */
-@Route(path = "/com/UserInfoFragment")
 public class UserInfoFragment extends BaseFragment {
 
     private UserInfoFragmentBind bind;
