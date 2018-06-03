@@ -4,9 +4,12 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.ContentFrameLayout;
+
 import com.gyf.barlibrary.ImmersionBar;
 import com.lunioussky.armier.R;
+
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
+
 
 
 /**

@@ -1,17 +1,24 @@
 package com.lunioussky.armier.ui.home;
 
 
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.databinding.HomeFragmentBind;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by 11645 on 2018/3/13.
@@ -20,27 +27,28 @@ import java.util.List;
 public class HomeFragment extends BaseFragment {
 
     private TabLayout tabLayout;
-    private ViewPager resultVp = null;
+    private ViewPager resultVp;
 
     private final List<String> mList = new ArrayList<String>();
     private ResultFragmentAdapter mAdapter;
 
+    private HomeFragmentBind bind;
 
+
+    @Nullable
     @Override
-    public Object setLayout() {
-        return R.layout.fragment_home;
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+        return bind.getRoot();
     }
 
-    @Override
-    public void initView() {
-        tabLayout = getView().findViewById(R.id.tab_layout);
-        resultVp = getView().findViewById(R.id.vp_view);
-    }
 
     @Override
     public void initData() {
+        resultVp = bind.vpView;
+        tabLayout = bind.tabLayout;
 
-        if (mList.size() > 0){
+        if (mList.size() > 0) {
             mList.clear();
         }
 
@@ -52,10 +60,12 @@ public class HomeFragment extends BaseFragment {
         mAdapter = new ResultFragmentAdapter(mList, getFragmentManager());
         resultVp.setAdapter(mAdapter);
         tabLayout.setupWithViewPager(resultVp);
+
     }
 
     @Override
     public void initEvent() {
+
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) {
@@ -65,6 +75,7 @@ public class HomeFragment extends BaseFragment {
         }
 
         updateTabTextView(tabLayout.getTabAt(tabLayout.getSelectedTabPosition()), true);
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -83,6 +94,7 @@ public class HomeFragment extends BaseFragment {
 
             }
         });
+
     }
 
 

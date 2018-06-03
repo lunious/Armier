@@ -1,16 +1,23 @@
 package com.lunioussky.armier.main;
 
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
-
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.bottomBar.BottomBarItem;
 import com.lunioussky.armier.bottomBar.BottomBarLayout;
+import com.lunioussky.armier.databinding.MainFragmentBind;
 import com.lunioussky.armier.ui.home.HomeFragment;
 import com.lunioussky.armier.ui.mine.MineFragment;
 import com.lunioussky.armier.ui.news.NewsFragment;
@@ -18,6 +25,8 @@ import com.lunioussky.armier.ui.video.VideoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * Created by 11645 on 2018/3/16.
@@ -29,20 +38,22 @@ public class MainFragment extends BaseFragment {
     private BottomBarLayout mBottomBarLayout;
     private RotateAnimation mRotateAnimation;
     private Handler mHandler = new Handler();
+    private MainFragmentBind bind;
 
 
+
+
+    @Nullable
     @Override
-    public Object setLayout() {
-        return R.layout.activity_main;
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        bind = DataBindingUtil.inflate(inflater,R.layout.fragment_main,container,false);
+        return bind.getRoot();
     }
 
-    @Override
-    public void initView() {
-        mBottomBarLayout = getView().findViewById(R.id.bbl);
-    }
 
     @Override
     public void initData() {
+        mBottomBarLayout = getView().findViewById(R.id.bbl);
         mFragment.add(new HomeFragment());
         mFragment.add(new VideoFragment());
         mFragment.add(new NewsFragment());
@@ -108,6 +119,7 @@ public class MainFragment extends BaseFragment {
         //设置显示提示的小红点
 //        mBottomBarLayout.showNotify(3);
     }
+
 
     private void changeFragment(int currentPosition) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();

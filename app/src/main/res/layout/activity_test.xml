@@ -2,7 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
+    <data class="TestBind">
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="myHandler"
+            type="com.lunioussky.armier.test.TestActivity.MyHandler" />
 
     </data>
 
@@ -16,10 +23,6 @@
             android:layout_height="@dimen/status_bar_height"
             android:background="@color/colorPrimary" />
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
 
         <ImageView
@@ -57,7 +60,7 @@
             android:layout_marginBottom="60dp"
             android:layout_marginEnd="83dp"
             android:layout_marginStart="15dp"
-            android:text="欢迎来到 Armier"
+            android:text="@{name}"
             android:textColor="@android:color/black"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -74,6 +77,7 @@
             android:layout_marginTop="8dp"
             android:text="Lunious"
             android:textColor="#3c3c3c"
+            android:onClick="@{myHandler::onClickTo}"
             app:layout_constraintEnd_toEndOf="@+id/ivAuthor"
             app:layout_constraintStart_toStartOf="@+id/ivAuthor"
             app:layout_constraintTop_toBottomOf="@+id/ivAuthor" />

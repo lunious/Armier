@@ -1,6 +1,7 @@
 package com.lunioussky.armier.ui.news;
 
 
+
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.databinding.NewsFragmentBind;
 
 
 /**
@@ -19,19 +21,15 @@ import com.lunioussky.armier.base.BaseFragment;
 
 public class NewsFragment extends BaseFragment {
 
+    private NewsFragmentBind bind;
 
 
+    @Nullable
     @Override
-    public Object setLayout() {
-        return R.layout.fragment_news;
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        bind = DataBindingUtil.inflate(inflater,R.layout.fragment_news,container,false);
+        return bind.getRoot();
     }
-
-    @Override
-    public void initView() {
-
-    }
-
-
 
     @Override
     public void initData() {
