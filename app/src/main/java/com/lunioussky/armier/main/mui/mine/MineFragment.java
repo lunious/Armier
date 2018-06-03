@@ -1,4 +1,4 @@
-package com.lunioussky.armier.ui.mine;
+package com.lunioussky.armier.main.mui.mine;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.main.BaseFragment;
 import com.lunioussky.armier.databinding.MineFragmentBind;
+import com.lunioussky.armier.main.BaseFragment;
 
 
 /**
@@ -21,7 +21,7 @@ import com.lunioussky.armier.databinding.MineFragmentBind;
 
 public class MineFragment extends BaseFragment {
 
-    public MineFragmentBind bind;
+    MineFragmentBind bind;
 
     @Nullable
     @Override
@@ -37,12 +37,17 @@ public class MineFragment extends BaseFragment {
 
     @Override
     public void initEvent() {
-        bind.setMyClick(new MyClick());
+        bind.setOnClick(new OnClick());
     }
 
-    public class MyClick {
-        public void onClickTo(View view) {
+    public class OnClick {
+
+        public void onClickToUser(View view) {
             ARouter.getInstance().build("/com/UserInfoActivity").navigation();
+        }
+
+        public void onClickToLucky(View view) {
+            ARouter.getInstance().build("/com/LuckyActivity").navigation();
         }
     }
 }

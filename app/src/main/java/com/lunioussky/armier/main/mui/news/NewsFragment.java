@@ -1,4 +1,6 @@
-package com.lunioussky.armier.ui.home;
+package com.lunioussky.armier.main.mui.news;
+
+
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -10,24 +12,24 @@ import android.view.ViewGroup;
 
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.main.BaseFragment;
-import com.lunioussky.armier.databinding.HomeTabBind;
+import com.lunioussky.armier.databinding.NewsFragmentBind;
+
 
 /**
- * Created by 11645 on 2018/3/14.
+ * Created by 11645 on 2018/3/13.
  */
 
-public class ResultListFragment extends BaseFragment {
+public class NewsFragment extends BaseFragment {
 
+    private NewsFragmentBind bind;
 
-    private HomeTabBind bind;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        bind = DataBindingUtil.inflate(inflater,R.layout.fragment_home_tab,container,false);
+        bind = DataBindingUtil.inflate(inflater,R.layout.fragment_news,container,false);
         return bind.getRoot();
     }
-
 
     @Override
     public void initData() {
@@ -37,10 +39,5 @@ public class ResultListFragment extends BaseFragment {
     @Override
     public void initEvent() {
 
-    }
-
-    public static ResultListFragment getInstance(String title) {
-        ResultListFragment sf = new ResultListFragment();
-        return sf;
     }
 }

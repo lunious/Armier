@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data class="MineFragmentBind">
 
         <variable
-            name="myClick"
-            type="com.lunioussky.armier.ui.mine.MineFragment.MyClick" />
+            name="onClick"
+            type="com.lunioussky.armier.main.mui.mine.MineFragment.OnClick" />
     </data>
 
     <LinearLayout
@@ -27,8 +28,8 @@
                 android:layout_height="@dimen/d68"
                 android:layout_alignParentStart="true"
                 android:layout_margin="@dimen/d10"
+                android:onClick="@{onClick::onClickToUser}"
                 android:src="@mipmap/default_portrait"
-                android:onClick="@{myClick::onClickTo}"
                 app:civ_border_color="@color/white"
                 app:civ_border_width="@dimen/d2" />
 
@@ -330,6 +331,41 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="系统设置"
+                    android:textColor="@color/mainText"
+                    android:textSize="@dimen/d15" />
+
+                <ImageView
+                    android:layout_width="@dimen/d16"
+                    android:layout_height="@dimen/d16"
+                    android:src="@mipmap/nomal_forward" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d10" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:onClick="@{onClick::onClickToLucky}"
+                android:orientation="horizontal"
+                android:padding="@dimen/d12">
+
+                <ImageView
+                    android:layout_width="@dimen/d17"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/d8"
+                    android:src="@mipmap/default_portrait" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="@dimen/d0"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="抽奖活动"
                     android:textColor="@color/mainText"
                     android:textSize="@dimen/d15" />
 

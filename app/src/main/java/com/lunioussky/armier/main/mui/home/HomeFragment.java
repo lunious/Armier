@@ -1,4 +1,4 @@
-package com.lunioussky.armier.ui.home;
+package com.lunioussky.armier.main.mui.home;
 
 
 import android.databinding.DataBindingUtil;

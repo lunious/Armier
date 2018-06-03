@@ -24,7 +24,7 @@
             android:layout_weight="1" />
 
 
-        <com.lunioussky.armier.main.bottomBar.BottomBarLayout
+        <com.lunioussky.armier.main.view.bottomBar.BottomBarLayout
             android:id="@+id/bbl"
             android:layout_width="match_parent"
             android:layout_height="46dp"
@@ -34,7 +34,7 @@
             android:orientation="horizontal">
 
 
-            <com.lunioussky.armier.main.bottomBar.BottomBarItem
+            <com.lunioussky.armier.main.view.bottomBar.BottomBarItem
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -48,7 +48,7 @@
                 app:textColorSelected="@color/tab_selected_color"
                 app:touchDrawable="@drawable/selector_bg" />
 
-            <com.lunioussky.armier.main.bottomBar.BottomBarItem
+            <com.lunioussky.armier.main.view.bottomBar.BottomBarItem
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -63,7 +63,7 @@
                 app:touchDrawable="@drawable/selector_bg" />
 
 
-            <com.lunioussky.armier.main.bottomBar.BottomBarItem
+            <com.lunioussky.armier.main.view.bottomBar.BottomBarItem
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -77,7 +77,7 @@
                 app:textColorSelected="@color/tab_selected_color"
                 app:touchDrawable="@drawable/selector_bg" />
 
-            <com.lunioussky.armier.main.bottomBar.BottomBarItem
+            <com.lunioussky.armier.main.view.bottomBar.BottomBarItem
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -92,7 +92,7 @@
                 app:touchDrawable="@drawable/selector_bg" />
 
 
-        </com.lunioussky.armier.main.bottomBar.BottomBarLayout>
+        </com.lunioussky.armier.main.view.bottomBar.BottomBarLayout>
 
     </LinearLayout>
 </layout>

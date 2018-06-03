@@ -1,4 +1,4 @@
-package com.lunioussky.armier.ui.video;
+package com.lunioussky.armier.main.mui.video;
 
 
 import android.databinding.DataBindingUtil;

@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main.bottomBar;
+package com.lunioussky.armier.main.view.bottomBar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
