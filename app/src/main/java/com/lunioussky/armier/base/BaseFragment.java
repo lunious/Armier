@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main;
+package com.lunioussky.armier.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

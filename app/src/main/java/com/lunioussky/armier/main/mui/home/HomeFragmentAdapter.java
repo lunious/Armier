@@ -11,17 +11,22 @@ import java.util.List;
  * Created by 11645 on 2018/3/14.
  */
 
-public class ResultFragmentAdapter extends FragmentPagerAdapter {
+public class HomeFragmentAdapter extends FragmentPagerAdapter {
 
     private List<String> mList = new ArrayList<>();
     private ArrayList<Fragment> mFragment = new ArrayList<>();
 
-    public ResultFragmentAdapter(List<String> list, FragmentManager fm) {
+    public HomeFragmentAdapter(List<String> list, FragmentManager fm) {
         super(fm);
         this.mList = list;
 
         for (int i = 0; i < mList.size(); i++) {
-            mFragment.add(ResultListFragment.getInstance(mList.get(i)));
+            if ("妹子".equals(mList.get(i))) {
+                mFragment.add(HomeMeiziListFragment.getInstance(mList.get(i)));
+            } else {
+                mFragment.add(HomeListFragment.getInstance(mList.get(i)));
+            }
+
         }
     }
 

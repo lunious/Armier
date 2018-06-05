@@ -1,4 +1,4 @@
-package com.lunioussky.armier.user;
+package com.lunioussky.armier.main.user;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -9,13 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lunioussky.armier.R;
+import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.UserInfoFragmentBind;
-import com.lunioussky.armier.main.BaseFragment;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -27,7 +26,7 @@ import com.lzy.okgo.model.Response;
  */
 public class UserInfoFragment extends BaseFragment {
 
-    private UserInfoFragmentBind bind;
+    UserInfoFragmentBind bind;
 
     @Nullable
     @Override

@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".main.MainActivity">
+            android:name=".base.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".user.UserInfoActivity" />
+            android:name=".main.user.UserInfoActivity" />
         <activity
             android:name=".main.oui.lucky.LuckyActivity"/>
     </application>

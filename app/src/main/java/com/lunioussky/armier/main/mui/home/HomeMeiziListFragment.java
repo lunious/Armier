@@ -1,6 +1,4 @@
-package com.lunioussky.armier.main.mui.news;
-
-
+package com.lunioussky.armier.main.mui.home;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -9,26 +7,29 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
-import com.lunioussky.armier.databinding.NewsFragmentBind;
-
+import com.lunioussky.armier.databinding.HomeMeiziListBind;
 
 /**
- * Created by 11645 on 2018/3/13.
+ * Author: lunious
+ * Date: 2018/6/5 15:46
+ * Description:
  */
+public class HomeMeiziListFragment extends BaseFragment {
 
-public class NewsFragment extends BaseFragment {
-
-    private NewsFragmentBind bind;
-
+    HomeMeiziListBind bind;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        bind = DataBindingUtil.inflate(inflater,R.layout.fragment_news,container,false);
+        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_home_meizi_list, container, false);
         return bind.getRoot();
+    }
+
+    public static HomeMeiziListFragment getInstance(String title) {
+        HomeMeiziListFragment sf = new HomeMeiziListFragment();
+        return sf;
     }
 
     @Override

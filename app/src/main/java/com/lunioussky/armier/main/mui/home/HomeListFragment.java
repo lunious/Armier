@@ -9,14 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.main.BaseFragment;
+import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.HomeTabBind;
 
 /**
  * Created by 11645 on 2018/3/14.
  */
 
-public class ResultListFragment extends BaseFragment {
+public class HomeListFragment extends BaseFragment {
 
 
     private HomeTabBind bind;
@@ -24,7 +24,7 @@ public class ResultListFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        bind = DataBindingUtil.inflate(inflater,R.layout.fragment_home_tab,container,false);
+        bind = DataBindingUtil.inflate(inflater,R.layout.fragment_home_tab_list,container,false);
         return bind.getRoot();
     }
 
@@ -39,8 +39,8 @@ public class ResultListFragment extends BaseFragment {
 
     }
 
-    public static ResultListFragment getInstance(String title) {
-        ResultListFragment sf = new ResultListFragment();
+    public static HomeListFragment getInstance(String title) {
+        HomeListFragment sf = new HomeListFragment();
         return sf;
     }
 }

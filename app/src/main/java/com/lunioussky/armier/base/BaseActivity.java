@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main;
+package com.lunioussky.armier.base;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

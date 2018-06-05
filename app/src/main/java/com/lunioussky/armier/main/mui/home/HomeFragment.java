@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.main.BaseFragment;
+import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.HomeFragmentBind;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class HomeFragment extends BaseFragment {
     private ViewPager resultVp;
 
     private final List<String> mList = new ArrayList<String>();
-    private ResultFragmentAdapter mAdapter;
+    private HomeFragmentAdapter mAdapter;
 
     private HomeFragmentBind bind;
 
@@ -53,11 +53,11 @@ public class HomeFragment extends BaseFragment {
         }
 
         mList.add("热点");
-        mList.add("段子");
         mList.add("视频");
-        mList.add("图片");
+        mList.add("段子");
+        mList.add("妹子");
 
-        mAdapter = new ResultFragmentAdapter(mList, getFragmentManager());
+        mAdapter = new HomeFragmentAdapter(mList, getFragmentManager());
         resultVp.setAdapter(mAdapter);
         tabLayout.setupWithViewPager(resultVp);
 
@@ -106,18 +106,17 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void updateTabTextView(TabLayout.Tab tab, boolean isSelect) {
+        TextView select = tab.getCustomView().findViewById(R.id.tab_item_textview);
 
         if (isSelect) {
             //选中加粗
-            TextView tabSelect = tab.getCustomView().findViewById(R.id.tab_item_textview);
-            tabSelect.setText(tab.getText());
-            tabSelect.setTextSize(20);
-            tabSelect.setTextColor(getResources().getColor(R.color.red));
+            select.setText(tab.getText());
+            select.setTextSize(22);
+            select.setTextColor(getResources().getColor(R.color.red));
         } else {
-            TextView tabUnSelect = tab.getCustomView().findViewById(R.id.tab_item_textview);
-            tabUnSelect.setText(tab.getText());
-            tabUnSelect.setTextSize(16);
-            tabUnSelect.setTextColor(getResources().getColor(R.color.tab_normal_color));
+            select.setText(tab.getText());
+            select.setTextSize(18);
+            select.setTextColor(getResources().getColor(R.color.tab_normal_color));
 
         }
 

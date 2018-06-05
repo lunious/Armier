@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main;
+package com.lunioussky.armier.base;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import com.lunioussky.armier.R;
+import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarItem;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarLayout;
 import com.lunioussky.armier.databinding.MainFragmentBind;

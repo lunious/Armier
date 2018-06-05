@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.databinding.LuckFragmentBind;
-import com.lunioussky.armier.main.BaseFragment;
+import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.main.view.LuckSpan;
 
 import static com.lzy.okgo.utils.HttpUtils.runOnUiThread;

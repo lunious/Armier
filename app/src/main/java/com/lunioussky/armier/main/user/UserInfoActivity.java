@@ -1,8 +1,8 @@
-package com.lunioussky.armier.user;
+package com.lunioussky.armier.main.user;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.lunioussky.armier.main.BaseActivity;
-import com.lunioussky.armier.main.BaseFragment;
+import com.lunioussky.armier.base.BaseActivity;
+import com.lunioussky.armier.base.BaseFragment;
 
 /**
  * Author: lunious
