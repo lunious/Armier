@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.lunioussky.armier.main.mui.home.fragment.HomeDuanziListFragment;
 import com.lunioussky.armier.main.mui.home.fragment.HomeListFragment;
 import com.lunioussky.armier.main.mui.home.fragment.HomeMeiziListFragment;
 
@@ -26,6 +27,8 @@ public class HomeFragmentAdapter extends FragmentPagerAdapter {
         for (int i = 0; i < mList.size(); i++) {
             if ("妹子".equals(mList.get(i))) {
                 mFragment.add(HomeMeiziListFragment.getInstance(mList.get(i)));
+            } else if ("段子".equals(mList.get(i))) {
+                mFragment.add(HomeDuanziListFragment.getInstance(mList.get(i)));
             } else {
                 mFragment.add(HomeListFragment.getInstance(mList.get(i)));
             }

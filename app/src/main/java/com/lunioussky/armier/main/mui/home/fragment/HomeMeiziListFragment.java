@@ -11,6 +11,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.lunioussky.armier.R;
+import com.lunioussky.armier.api.JyApi;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.HomeMeiziListBind;
 import com.lunioussky.armier.entity.HomeMeiziListBean;
@@ -65,6 +66,8 @@ public class HomeMeiziListFragment extends BaseFragment<HomeMeiziListBind> {
 
     public void initAdapter() {
         meiziListAdapter = new HomeMeiziListAdapter(R.layout.item_meizi, mDataList);
+        //设置列表动画
+        meiziListAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         bindingView.recyclerView.setAdapter(meiziListAdapter);
         meiziListAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
@@ -82,8 +85,7 @@ public class HomeMeiziListFragment extends BaseFragment<HomeMeiziListBind> {
 
     public void requestData() {
 
-        String url = "https://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/" + page;
-        OkGo.<String>get(url)
+        OkGo.<String>get(JyApi.meizi + page)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
@@ -104,7 +106,5 @@ public class HomeMeiziListFragment extends BaseFragment<HomeMeiziListBind> {
                         }
                     }
                 });
-
-        Log.d("ABSDASDASDASDAS", url);
     }
 }

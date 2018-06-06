@@ -27,7 +27,7 @@ public class LauncherFragment extends BaseFragment<LauncherFragmentBind> {
     public void initData() {
         //加载必应每日一图
         Glide.with(this)
-                .load("https://www.dujin.org/sys/bing/1920.php")
+                .load("https://www.xwboke.cn/api/api.php")
                 .into(bindingView.ivPic);
     }
 
