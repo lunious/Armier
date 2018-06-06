@@ -1,13 +1,7 @@
 package com.lunioussky.armier.base;
 
-import android.databinding.DataBindingUtil;
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
@@ -15,25 +9,18 @@ import com.lunioussky.armier.R;
 import com.lunioussky.armier.databinding.LauncherFragmentBind;
 import com.lunioussky.armier.util.PerfectClickListener;
 
-import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
-import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
-import me.yokeyword.fragmentation.anim.FragmentAnimator;
-
-
 /**
  * Author: lunious
  * Date: 2018/6/6 9:39
  * Description:
  */
-public class LauncherFragment extends BaseFragment {
-    public LauncherFragmentBind bind;
+public class LauncherFragment extends BaseFragment<LauncherFragmentBind> {
     private Boolean isIn = false;
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_launcher, container, false);
-        return bind.getRoot();
+    public int setContent() {
+        return R.layout.fragment_launcher;
     }
 
     @Override
@@ -41,7 +28,7 @@ public class LauncherFragment extends BaseFragment {
         //加载必应每日一图
         Glide.with(this)
                 .load("https://www.dujin.org/sys/bing/1920.php")
-                .into(bind.ivPic);
+                .into(bindingView.ivPic);
     }
 
     @Override
@@ -54,7 +41,7 @@ public class LauncherFragment extends BaseFragment {
             }
         }, 4000);
         //如果点击了"跳过"，立即跳转到首页
-        bind.tvJump.setOnClickListener(new PerfectClickListener() {
+        bindingView.tvJump.setOnClickListener(new PerfectClickListener() {
             @Override
             protected void onNoDoubleClick(View v) {
                 toMain();

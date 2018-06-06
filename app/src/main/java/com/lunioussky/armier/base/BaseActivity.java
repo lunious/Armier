@@ -8,13 +8,13 @@ import android.support.v7.widget.ContentFrameLayout;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lunioussky.armier.R;
 
-import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
-import me.yokeyword.fragmentation.anim.FragmentAnimator;
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
 
 /**
- * Created by 11645 on 2018/3/15.
+ * Author: lunious
+ * Date: 2018/6/2 21:42
+ * Description: activity的基类，一些公用逻辑可在此处理
  */
 
 public abstract class BaseActivity extends SwipeBackActivity {

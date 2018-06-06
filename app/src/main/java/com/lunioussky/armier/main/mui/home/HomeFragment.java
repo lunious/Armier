@@ -1,15 +1,9 @@
 package com.lunioussky.armier.main.mui.home;
 
 
-import android.databinding.DataBindingUtil;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lunioussky.armier.R;
@@ -24,29 +18,21 @@ import java.util.List;
  * Created by 11645 on 2018/3/13.
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment<HomeFragmentBind> {
 
-    private TabLayout tabLayout;
-    private ViewPager resultVp;
 
     private final List<String> mList = new ArrayList<String>();
     private HomeFragmentAdapter mAdapter;
 
-    private HomeFragmentBind bind;
 
-
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
-        return bind.getRoot();
+    public int setContent() {
+        return R.layout.fragment_home;
     }
 
 
     @Override
     public void initData() {
-        resultVp = bind.vpView;
-        tabLayout = bind.tabLayout;
 
         if (mList.size() > 0) {
             mList.clear();
@@ -58,26 +44,26 @@ public class HomeFragment extends BaseFragment {
         mList.add("妹子");
 
         mAdapter = new HomeFragmentAdapter(mList, getFragmentManager());
-        resultVp.setAdapter(mAdapter);
-        tabLayout.setupWithViewPager(resultVp);
+        bindingView.vpView.setAdapter(mAdapter);
+        bindingView.tabLayout.setupWithViewPager(bindingView.vpView);
 
     }
 
     @Override
     public void initEvent() {
 
-        for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            TabLayout.Tab tab = tabLayout.getTabAt(i);
+        for (int i = 0; i < bindingView.tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = bindingView.tabLayout.getTabAt(i);
             if (tab != null) {
                 tab.setCustomView(getTabView(i));
             }
 
         }
 
-        updateTabTextView(tabLayout.getTabAt(tabLayout.getSelectedTabPosition()), true);
+        updateTabTextView(bindingView.tabLayout.getTabAt(bindingView.tabLayout.getSelectedTabPosition()), true);
 
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        bindingView.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 updateTabTextView(tab, true);

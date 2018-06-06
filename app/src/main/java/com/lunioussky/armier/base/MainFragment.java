@@ -13,10 +13,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarItem;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarLayout;
 import com.lunioussky.armier.databinding.MainFragmentBind;
@@ -32,20 +30,17 @@ import java.util.List;
  * Created by 11645 on 2018/3/16.
  */
 
-public class MainFragment extends BaseFragment {
+public class MainFragment extends BaseFragment<MainFragmentBind> {
 
     private List<Fragment> mFragment = new ArrayList<>();
     private BottomBarLayout mBottomBarLayout;
     private RotateAnimation mRotateAnimation;
     private Handler mHandler = new Handler();
-    private MainFragmentBind bind;
 
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
-        return bind.getRoot();
+    public int setContent() {
+        return R.layout.fragment_main;
     }
 
 
@@ -134,7 +129,6 @@ public class MainFragment extends BaseFragment {
             animation.cancel();
         }
     }
-
 
 
 }
