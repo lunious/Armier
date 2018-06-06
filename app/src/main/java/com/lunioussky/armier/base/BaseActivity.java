@@ -8,8 +8,9 @@ import android.support.v7.widget.ContentFrameLayout;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lunioussky.armier.R;
 
+import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
-
 
 
 /**
@@ -49,5 +50,6 @@ public abstract class BaseActivity extends SwipeBackActivity {
         super.onDestroy();
 
     }
+
 
 }

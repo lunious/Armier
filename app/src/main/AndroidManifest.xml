@@ -15,18 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name=".base.MainActivity">
+        <activity android:name=".base.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".main.user.UserInfoActivity" />
-        <activity
-            android:name=".main.oui.lucky.LuckyActivity"/>
+
+        <activity android:name=".base.MainActivity" />
+        <activity android:name=".main.user.UserInfoActivity" />
+        <activity android:name=".main.oui.lucky.LuckyActivity" />
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.lunioussky.armier.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
@@ -25,4 +26,6 @@ public abstract class BaseFragment extends SwipeBackFragment {
     public abstract void initData();
 
     public abstract void initEvent();
+
+
 }

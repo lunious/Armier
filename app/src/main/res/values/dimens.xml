@@ -3,6 +3,16 @@
     <dimen name="status_bar_height">0dp</dimen>
 
     <!--单位为dp-->
+    <dimen name="d10_">-10.0dp</dimen>
+    <dimen name="d9_">-9.0dp</dimen>
+    <dimen name="d8_">-8.0dp</dimen>
+    <dimen name="d7_">-7.0dp</dimen>
+    <dimen name="d6_">-6.0dp</dimen>
+    <dimen name="d5_">-5.0dp</dimen>
+    <dimen name="d4_">-4.0dp</dimen>
+    <dimen name="d3_">-3.0dp</dimen>
+    <dimen name="d2_">-2.0dp</dimen>
+    <dimen name="d1_">-1.0dp</dimen>
     <dimen name="d0">0dp</dimen>
     <dimen name="d1">1.0dp</dimen>
     <dimen name="d2">2.0dp</dimen>

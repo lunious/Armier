@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarItem;
@@ -39,12 +41,10 @@ public class MainFragment extends BaseFragment {
     private MainFragmentBind bind;
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        bind = DataBindingUtil.inflate(inflater,R.layout.fragment_main,container,false);
+        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
         return bind.getRoot();
     }
 
@@ -134,4 +134,7 @@ public class MainFragment extends BaseFragment {
             animation.cancel();
         }
     }
+
+
+
 }
