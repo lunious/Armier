@@ -10,12 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bumptech.glide.Glide;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.databinding.LauncherFragmentBind;
 import com.lunioussky.armier.util.PerfectClickListener;
 
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
+
 
 /**
  * Author: lunious
@@ -35,7 +38,10 @@ public class LauncherFragment extends BaseFragment {
 
     @Override
     public void initData() {
-
+        //加载必应每日一图
+        Glide.with(this)
+                .load("https://www.dujin.org/sys/bing/1920.php")
+                .into(bind.ivPic);
     }
 
     @Override
@@ -64,5 +70,6 @@ public class LauncherFragment extends BaseFragment {
         isIn = true;
         getActivity().finish();
     }
+
 
 }

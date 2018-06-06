@@ -31,11 +31,5 @@
             android:textColor="#fff"
             android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/iv_defult_pic"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
-
     </RelativeLayout>
 </layout>
