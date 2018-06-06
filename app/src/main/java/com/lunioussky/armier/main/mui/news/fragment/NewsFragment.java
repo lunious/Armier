@@ -1,22 +1,21 @@
-package com.lunioussky.armier.main.mui.video;
-
+package com.lunioussky.armier.main.mui.news.fragment;
 
 
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
-import com.lunioussky.armier.databinding.VideoFragmentBind;
+import com.lunioussky.armier.databinding.NewsFragmentBind;
 
 
 /**
  * Created by 11645 on 2018/3/13.
  */
 
-public class VideoFragment extends BaseFragment<VideoFragmentBind> {
+public class NewsFragment extends BaseFragment<NewsFragmentBind> {
 
 
     @Override
     public int setContent() {
-        return R.layout.fragment_video;
+        return R.layout.fragment_news;
     }
 
     @Override

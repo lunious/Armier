@@ -7,7 +7,7 @@
 
         <variable
             name="onClick"
-            type="com.lunioussky.armier.main.mui.mine.MineFragment.OnClick" />
+            type="com.lunioussky.armier.main.mui.mine.fragment.MineFragment.OnClick" />
     </data>
 
     <LinearLayout

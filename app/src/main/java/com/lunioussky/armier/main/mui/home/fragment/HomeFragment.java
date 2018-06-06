@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main.mui.home;
+package com.lunioussky.armier.main.mui.home.fragment;
 
 
 import android.support.design.widget.TabLayout;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.HomeFragmentBind;
+import com.lunioussky.armier.main.mui.home.adapter.HomeFragmentAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

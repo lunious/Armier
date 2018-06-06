@@ -1,15 +1,8 @@
 package com.lunioussky.armier.base;
 
-import android.databinding.DataBindingUtil;
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
@@ -18,10 +11,10 @@ import com.lunioussky.armier.R;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarItem;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarLayout;
 import com.lunioussky.armier.databinding.MainFragmentBind;
-import com.lunioussky.armier.main.mui.home.HomeFragment;
-import com.lunioussky.armier.main.mui.mine.MineFragment;
-import com.lunioussky.armier.main.mui.news.NewsFragment;
-import com.lunioussky.armier.main.mui.video.VideoFragment;
+import com.lunioussky.armier.main.mui.home.fragment.HomeFragment;
+import com.lunioussky.armier.main.mui.mine.fragment.MineFragment;
+import com.lunioussky.armier.main.mui.news.fragment.NewsFragment;
+import com.lunioussky.armier.main.mui.video.fragment.VideoFragment;
 
 import java.util.ArrayList;
 import java.util.List;

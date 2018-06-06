@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main.mui.home;
+package com.lunioussky.armier.main.mui.home.fragment;
 
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;

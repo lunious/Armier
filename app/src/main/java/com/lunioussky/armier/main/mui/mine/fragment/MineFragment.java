@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main.mui.mine;
+package com.lunioussky.armier.main.mui.mine.fragment;
 
 import android.view.View;
 import com.alibaba.android.arouter.launcher.ARouter;

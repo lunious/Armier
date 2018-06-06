@@ -1,8 +1,11 @@
-package com.lunioussky.armier.main.mui.home;
+package com.lunioussky.armier.main.mui.home.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.lunioussky.armier.main.mui.home.fragment.HomeListFragment;
+import com.lunioussky.armier.main.mui.home.fragment.HomeMeiziListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
