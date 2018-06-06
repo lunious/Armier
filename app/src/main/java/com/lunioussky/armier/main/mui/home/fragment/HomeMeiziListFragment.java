@@ -1,6 +1,7 @@
 package com.lunioussky.armier.main.mui.home.fragment;
 
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class HomeMeiziListFragment extends BaseFragment<HomeMeiziListBind> {
 
     private HomeMeiziListAdapter meiziListAdapter;
     private ArrayList<HomeMeiziListBean> mDataList = new ArrayList<>();
+    private int page = 1;
 
     @Override
     public int setContent() {
@@ -43,11 +45,13 @@ public class HomeMeiziListFragment extends BaseFragment<HomeMeiziListBind> {
 
     @Override
     public void initData() {
+        initRecyclerView();
+        initAdapter();
+
+    }
+
+    public void initRecyclerView() {
         bindingView.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-
-        meiziListAdapter = new HomeMeiziListAdapter(R.layout.item_meizi, mDataList);
-        bindingView.recyclerView.setAdapter(meiziListAdapter);
-
         bindingView.recyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -57,8 +61,18 @@ public class HomeMeiziListFragment extends BaseFragment<HomeMeiziListBind> {
                 Toast.makeText(getContext(), "点我干啥" + url, Toast.LENGTH_LONG).show();
             }
         });
+    }
 
-
+    public void initAdapter() {
+        meiziListAdapter = new HomeMeiziListAdapter(R.layout.item_meizi, mDataList);
+        bindingView.recyclerView.setAdapter(meiziListAdapter);
+        meiziListAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+            @Override
+            public void onLoadMoreRequested() {
+                page++;
+                requestData();
+            }
+        }, bindingView.recyclerView);
     }
 
     @Override
@@ -67,7 +81,9 @@ public class HomeMeiziListFragment extends BaseFragment<HomeMeiziListBind> {
     }
 
     public void requestData() {
-        OkGo.<String>get("https://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/1")
+
+        String url = "https://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/" + page;
+        OkGo.<String>get(url)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
@@ -76,17 +92,19 @@ public class HomeMeiziListFragment extends BaseFragment<HomeMeiziListBind> {
                         if ("false".equals(error)) {
                             final JSONArray results = object.getJSONArray("results");
                             if (results.size() > 0) {
-                                mDataList.clear();
                                 for (int i = 0; i < results.size(); i++) {
                                     HomeMeiziListBean listBean = new HomeMeiziListBean();
                                     JSONObject list = results.getJSONObject(i);
                                     listBean.setUrl(list.getString("url"));
                                     mDataList.add(listBean);
                                 }
+                                meiziListAdapter.loadMoreComplete();
                                 meiziListAdapter.notifyDataSetChanged();
                             }
                         }
                     }
                 });
+
+        Log.d("ABSDASDASDASDAS", url);
     }
 }

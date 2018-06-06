@@ -1,12 +1,11 @@
 package com.lunioussky.armier.base;
 
+import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.support.annotation.Nullable;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
-
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarItem;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarLayout;
@@ -16,8 +15,6 @@ import com.lunioussky.armier.main.mui.mine.fragment.MineFragment;
 import com.lunioussky.armier.main.mui.news.fragment.NewsFragment;
 import com.lunioussky.armier.main.mui.video.fragment.VideoFragment;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by 11645 on 2018/3/16.
@@ -25,7 +22,13 @@ import java.util.List;
 
 public class MainFragment extends BaseFragment<MainFragmentBind> {
 
-    private List<Fragment> mFragment = new ArrayList<>();
+    public static final int FIRST = 0;
+    public static final int SECOND = 1;
+    public static final int THIRD = 2;
+    public static final int FOUR = 3;
+
+    private BaseFragment[] mFragments = new BaseFragment[4];
+
     private BottomBarLayout mBottomBarLayout;
     private RotateAnimation mRotateAnimation;
     private Handler mHandler = new Handler();
@@ -38,23 +41,45 @@ public class MainFragment extends BaseFragment<MainFragmentBind> {
 
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        BaseFragment firstFragment = findChildFragment(HomeFragment.class);
+        if (firstFragment == null) {
+            mFragments[FIRST] = new HomeFragment();
+            mFragments[SECOND] = new VideoFragment();
+            mFragments[THIRD] = new NewsFragment();
+            mFragments[FOUR] = new MineFragment();
+
+            loadMultipleRootFragment(R.id.fl_content, FIRST,
+                    mFragments[FIRST],
+                    mFragments[SECOND],
+                    mFragments[THIRD],
+                    mFragments[FOUR]);
+        } else {
+            // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
+
+            // 这里我们需要拿到mFragments的引用
+            mFragments[FIRST] = firstFragment;
+            mFragments[SECOND] = findChildFragment(VideoFragment.class);
+            mFragments[THIRD] = findChildFragment(NewsFragment.class);
+            mFragments[FOUR] = findChildFragment(MineFragment.class);
+        }
+
+    }
+
+    @Override
     public void initData() {
         mBottomBarLayout = getView().findViewById(R.id.bbl);
-        mFragment.add(new HomeFragment());
-        mFragment.add(new VideoFragment());
-        mFragment.add(new NewsFragment());
-        mFragment.add(new MineFragment());
-        // 默认显示第一页
-        changeFragment(0);
     }
 
     @Override
     public void initEvent() {
         mBottomBarLayout.setOnItemSelectedListener(new BottomBarLayout.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(final BottomBarItem bottomBarItem, int previousPosition, final int currentPosition) {
 
-                changeFragment(currentPosition);
+                showHideFragment(mFragments[currentPosition], mFragments[previousPosition]);
 
                 if (currentPosition == 0) {
                     //如果是第一个，即首页
@@ -99,18 +124,12 @@ public class MainFragment extends BaseFragment<MainFragmentBind> {
                 bottomItem.setIconSelectedResourceId(R.mipmap.tab_home_selected);
                 //停止旋转动画
                 cancelTabLoading(bottomItem);
+
             }
         });
 
         //设置显示提示的小红点
 //        mBottomBarLayout.showNotify(3);
-    }
-
-
-    private void changeFragment(int currentPosition) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fl_content, mFragment.get(currentPosition));
-        transaction.commit();
     }
 
     /**

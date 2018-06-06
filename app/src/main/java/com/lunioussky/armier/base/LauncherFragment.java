@@ -59,4 +59,9 @@ public class LauncherFragment extends BaseFragment<LauncherFragmentBind> {
     }
 
 
+    //闪页不可退出
+    @Override
+    public boolean onBackPressedSupport() {
+        return true;
+    }
 }

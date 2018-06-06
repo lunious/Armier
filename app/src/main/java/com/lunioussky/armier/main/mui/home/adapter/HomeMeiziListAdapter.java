@@ -9,6 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.entity.HomeMeiziListBean;
+import com.lunioussky.armier.main.view.GlideApp;
 
 import java.util.List;
 
@@ -28,6 +29,11 @@ public class HomeMeiziListAdapter extends BaseQuickAdapter<HomeMeiziListBean, Ba
 
 
         // 加载网络图片
-        Glide.with(mContext).load(item.getUrl()).into((ImageView) helper.getView(R.id.meizi_item));
+        GlideApp.with(mContext)
+                .load(item.getUrl())
+                .placeholder(R.mipmap.default_pic)
+                .error(R.mipmap.default_pic)
+                .fitCenter()
+                .into((ImageView) helper.getView(R.id.meizi_item));
     }
 }

@@ -12,4 +12,5 @@ public class LauncherActivity extends BaseActivity {
         setSwipeBackEnable(false);
         return new LauncherFragment();
     }
+
 }
