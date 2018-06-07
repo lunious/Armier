@@ -38,8 +38,10 @@ public class RelaxFragment extends BaseFragment<RelaxFragmentBind> {
         if (mList.size() > 0) {
             mList.clear();
         }
+        mList.add("新鲜事");
+        mList.add("无聊图");
+        mList.add("妹子图");
         mList.add("段子");
-        mList.add("妹子");
 
         mAdapter = new RelaxFragmentAdapter(mList, getFragmentManager());
         bindingView.vpView.setAdapter(mAdapter);
@@ -95,11 +97,11 @@ public class RelaxFragment extends BaseFragment<RelaxFragmentBind> {
         if (isSelect) {
             //选中加粗
             select.setText(tab.getText());
-            select.setTextSize(22);
+            select.setTextSize(20);
             select.setTextColor(getResources().getColor(R.color.red));
         } else {
             select.setText(tab.getText());
-            select.setTextSize(18);
+            select.setTextSize(16);
             select.setTextColor(getResources().getColor(R.color.tab_normal_color));
 
         }

@@ -10,26 +10,50 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <ImageView
-            android:id="@+id/iv_pic"
+            android:id="@+id/iv_ad"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
+            android:layout_above="@+id/ll_bottom" />
 
-        <TextView
-            android:id="@+id/tv_jump"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
+        <RelativeLayout
+            android:id="@id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:background="@android:color/white"
+            android:padding="@dimen/d10">
+
+            <ImageView
+                android:id="@+id/gifImageView"
+                android:layout_width="@dimen/d100"
+                android:layout_height="@dimen/d70"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="40dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/shape_jump"
-            android:gravity="center"
-            android:text="跳过"
-            android:textColor="#fff"
-            android:textSize="16sp" />
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/d10"
+            android:layout_marginTop="@dimen/d20"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tv_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d24"
+                android:layout_gravity="center"
+                android:background="@drawable/ad_ignore_bg"
+                android:gravity="center"
+                android:paddingLeft="@dimen/d10"
+                android:paddingRight="@dimen/d10"
+                android:text="跳过广告"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/s12" />
+        </FrameLayout>
 
     </RelativeLayout>
 </layout>

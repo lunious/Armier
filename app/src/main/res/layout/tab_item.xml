@@ -11,6 +11,6 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/tab_normal_color"
-        android:textSize="18sp" />
+        android:textSize="@dimen/s16" />
 
 </LinearLayout>
