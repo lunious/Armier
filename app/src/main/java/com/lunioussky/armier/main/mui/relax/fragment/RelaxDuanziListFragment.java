@@ -81,7 +81,7 @@ public class RelaxDuanziListFragment extends BaseFragment<DuanziListBind> {
 
     public void requestData() {
 
-        OkGo.<String>post(JyApi.duanzi)
+        OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "jandan.get_duan_comments")
                 .params("page", page)
                 .execute(new StringCallback() {

@@ -82,7 +82,7 @@ public class RelaxFreshListFragment extends BaseFragment<FreshListBind> {
 
     public void requestData() {
 
-        OkGo.<String>post(JyApi.meizi)
+        OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "get_recent_posts")
                 .params("page", page)
                 .params("include", "url,date,tags,author,title,excerpt,comment_count,comment_status,custom_fields")

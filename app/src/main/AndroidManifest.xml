@@ -27,7 +27,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".base.MainActivity" />
+        <activity
+            android:name=".base.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".main.user.UserInfoActivity" />
         <activity android:name=".main.oui.lucky.LuckyActivity" />
     </application>

@@ -66,5 +66,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
     //fastjson依赖
     implementation 'com.alibaba:fastjson:1.2.38'
+    //NiceVieoPlayer
+    implementation 'com.github.xiaoyanger0825:NiceVieoPlayer:v2.2'
 
 }

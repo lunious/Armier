@@ -80,7 +80,7 @@ public class RelaxBoredListFragment extends BaseFragment<BoredListBind> {
 
     public void requestData() {
 
-        OkGo.<String>post(JyApi.meizi)
+        OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "jandan.get_pic_comments")
                 .params("page", page)
                 .execute(new StringCallback() {

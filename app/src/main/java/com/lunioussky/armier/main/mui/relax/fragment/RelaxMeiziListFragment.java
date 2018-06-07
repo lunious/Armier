@@ -2,6 +2,7 @@ package com.lunioussky.armier.main.mui.relax.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -80,7 +81,7 @@ public class RelaxMeiziListFragment extends BaseFragment<MeiziListBind> {
 
     public void requestData() {
 
-        OkGo.<String>post(JyApi.meizi)
+        OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "jandan.get_ooxx_comments")
                 .params("page", page)
                 .execute(new StringCallback() {

@@ -7,8 +7,8 @@ package com.lunioussky.armier.api;
  */
 public abstract class JyApi {
 
-    //美女图片(干货接口)
-    public static final String meizi = "http://i.jandan.net/";
-    //段子(煎蛋接口)
-    public static final String duanzi = "http://i.jandan.net/";
+    //煎蛋接口
+    public static final String jandan = "http://i.jandan.net/";
+    //凤凰视频接口
+    public static final String iFeng = "http://api.iclient.ifeng.com/ifengvideoList";
 }
