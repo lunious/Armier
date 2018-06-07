@@ -58,36 +58,43 @@ public class VideoFragment extends BaseFragment<VideoFragmentBind> {
                             mList.add(name);
                         }
                         mAdapter = new VideoFragmentAdapter(mList, getFragmentManager());
-                        bindingView.vpView.setAdapter(mAdapter);
-                        bindingView.tabLayout.setupWithViewPager(bindingView.vpView);
+                        bindingView.vpVideo.setAdapter(mAdapter);
+                        bindingView.tabVideo.setupWithViewPager(bindingView.vpVideo);
+
+                        initTab();
+
 
                     }
                 });
+
     }
 
     @Override
     public void initEvent() {
-        for (int i = 0; i < bindingView.tabLayout.getTabCount(); i++) {
-            TabLayout.Tab tab = bindingView.tabLayout.getTabAt(i);
+
+    }
+
+    public void initTab() {
+        for (int i = 0; i < bindingView.tabVideo.getTabCount(); i++) {
+            TabLayout.Tab tab = bindingView.tabVideo.getTabAt(i);
             if (tab != null) {
                 tab.setCustomView(getTabView(i));
             }
 
         }
 
-//        updateTabTextView(bindingView.tabLayout.getTabAt(bindingView.tabLayout.getSelectedTabPosition()), true);
+        updateTabTextView(bindingView.tabVideo.getTabAt(bindingView.tabVideo.getSelectedTabPosition()), true);
 
-
-        bindingView.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        bindingView.tabVideo.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-//                updateTabTextView(tab, true);
+                updateTabTextView(tab, true);
 
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-//                updateTabTextView(tab, false);
+                updateTabTextView(tab, false);
             }
 
             @Override

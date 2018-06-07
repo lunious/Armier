@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
 import com.lunioussky.armier.main.mui.relax.fragment.RelaxFreshListFragment;
+import com.lunioussky.armier.main.mui.video.fragment.VideoListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class VideoFragmentAdapter extends FragmentPagerAdapter {
         this.mList = list;
 
         for (int i = 0; i < mList.size(); i++) {
-            mFragment.add(RelaxFreshListFragment.getInstance(mList.get(i)));
+            mFragment.add(VideoListFragment.getInstance(mList.get(i)));
         }
 
     }
