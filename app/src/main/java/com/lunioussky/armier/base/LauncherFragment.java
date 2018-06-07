@@ -9,6 +9,7 @@ import com.lunioussky.armier.databinding.LauncherFragmentBind;
 import com.lunioussky.armier.main.view.GlideApp;
 import com.lunioussky.armier.util.PerfectClickListener;
 
+
 /**
  * Author: lunious
  * Date: 2018/6/6 9:39
@@ -27,7 +28,6 @@ public class LauncherFragment extends BaseFragment<LauncherFragmentBind> {
         //加载必应每日一图
         GlideApp.with(this)
                 .load("http://api.dujin.org/bing/1920.php")
-                .placeholder(R.mipmap.ic_personal_bg)
                 .centerCrop()
                 .into(bindingView.ivAd);
         GlideApp.with(this)
@@ -59,7 +59,7 @@ public class LauncherFragment extends BaseFragment<LauncherFragmentBind> {
         if (isIn) {
             return;
         }
-        ARouter.getInstance().build("/com/MainActivity").withTransition(R.anim.screen_zoom_in, R.anim.screen_zoom_out).navigation(getActivity());
+        ARouter.getInstance().build("/com/MainActivity").navigation(getActivity());
         isIn = true;
         getActivity().finish();
     }
@@ -70,4 +70,6 @@ public class LauncherFragment extends BaseFragment<LauncherFragmentBind> {
     public boolean onBackPressedSupport() {
         return true;
     }
+
+
 }

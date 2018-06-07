@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.lunioussky.armier.main.mui.relax.fragment.RelaxBoredListFragment;
 import com.lunioussky.armier.main.mui.relax.fragment.RelaxDuanziListFragment;
+import com.lunioussky.armier.main.mui.relax.fragment.RelaxFreshListFragment;
 import com.lunioussky.armier.main.mui.relax.fragment.RelaxMeiziListFragment;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class RelaxFragmentAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                return RelaxMeiziListFragment.getInstance(mList.get(0));
+                return RelaxFreshListFragment.getInstance(mList.get(0));
             case 1:
                 return RelaxBoredListFragment.getInstance(mList.get(1));
             case 2:

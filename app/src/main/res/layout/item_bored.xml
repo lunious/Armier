@@ -7,14 +7,14 @@
 
 
     <TextView
-        android:id="@+id/duanzi_author"
+        android:id="@+id/bored_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/mainTheme"
         android:textSize="@dimen/d16" />
 
     <TextView
-        android:id="@+id/duanzi_date"
+        android:id="@+id/bored_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/d8"
@@ -22,7 +22,7 @@
         android:textSize="@dimen/d14" />
 
     <TextView
-        android:id="@+id/duanzi_content"
+        android:id="@+id/bored_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/d8"
@@ -30,7 +30,7 @@
         android:textSize="@dimen/s16" />
 
     <ImageView
-        android:id="@+id/meizi_item"
+        android:id="@+id/bored_item"
         android:layout_width="match_parent"
         android:layout_height="@dimen/d250"
         android:layout_marginTop="@dimen/d10"

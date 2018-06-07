@@ -17,7 +17,9 @@
 
         <activity
             android:name=".base.LauncherActivity"
-            android:theme="@style/AppTheme.NoBar">
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.Full"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
