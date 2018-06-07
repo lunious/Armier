@@ -61,7 +61,7 @@ public class RelaxDuanziListFragment extends BaseFragment<DuanziListBind> {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 final RelaxDuanziListBean data = (RelaxDuanziListBean) adapter.getData().get(position);
-                final String text = data.getText();
+                final String text = data.getText_content();
 
                 Toast.makeText(getContext(), "点我干啥\n" + text, Toast.LENGTH_LONG).show();
             }
@@ -85,31 +85,26 @@ public class RelaxDuanziListFragment extends BaseFragment<DuanziListBind> {
     public void requestData() {
 
         OkGo.<String>post(JyApi.duanzi)
-                .params("showapi_appid", JyConstant.appid)
-                .params("showapi_sign", JyConstant.sign)
-                .params("type", "29")
+                .params("oxwlxojflwblxbsapi", "jandan.get_duan_comments")
                 .params("page", page)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
                         final JSONObject object = JSON.parseObject(response.body());
-                        final String showapi_res_code = object.getString("showapi_res_code");
-                        if ("0".equals(showapi_res_code)) {
-                            final JSONObject body = object.getJSONObject("showapi_res_body");
-                            final String ret_code = body.getString("ret_code");
-                            if ("0".equals(ret_code)) {
-                                final JSONObject pagebean = body.getJSONObject("pagebean");
-                                final JSONArray contentlist = pagebean.getJSONArray("contentlist");
-                                if (contentlist.size() > 0) {
-                                    for (int i = 0; i < contentlist.size(); i++) {
-                                        RelaxDuanziListBean listBean = new RelaxDuanziListBean();
-                                        JSONObject list = contentlist.getJSONObject(i);
-                                        listBean.setText(list.getString("text"));
-                                        mDataList.add(listBean);
-                                    }
-                                    duanziListAdapter.loadMoreComplete();
-                                    duanziListAdapter.notifyDataSetChanged();
+                        final String status = object.getString("status");
+                        if ("ok".equals(status)) {
+                            final JSONArray comments = object.getJSONArray("comments");
+                            if (comments.size() > 0) {
+                                for (int i = 0; i < comments.size(); i++) {
+                                    RelaxDuanziListBean listBean = new RelaxDuanziListBean();
+                                    JSONObject list = comments.getJSONObject(i);
+                                    listBean.setComment_author(list.getString("comment_author"));
+                                    listBean.setComment_date(list.getString("comment_date"));
+                                    listBean.setText_content(list.getString("text_content"));
+                                    mDataList.add(listBean);
                                 }
+                                duanziListAdapter.loadMoreComplete();
+                                duanziListAdapter.notifyDataSetChanged();
                             }
 
                         }

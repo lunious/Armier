@@ -9,20 +9,40 @@ import java.io.Serializable;
  */
 public class RelaxDuanziListBean implements Serializable {
 
-    private String text;
+    private String comment_author;
+    private String comment_date;
+    private String text_content;
 
-    public String getText() {
-        return text;
+    public String getComment_author() {
+        return comment_author;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setComment_author(String comment_author) {
+        this.comment_author = comment_author;
+    }
+
+    public String getComment_date() {
+        return comment_date;
+    }
+
+    public void setComment_date(String comment_date) {
+        this.comment_date = comment_date;
+    }
+
+    public String getText_content() {
+        return text_content;
+    }
+
+    public void setText_content(String text_content) {
+        this.text_content = text_content;
     }
 
     @Override
     public String toString() {
         return "RelaxDuanziListBean{" +
-                "text='" + text + '\'' +
+                "comment_author='" + comment_author + '\'' +
+                ", comment_date='" + comment_date + '\'' +
+                ", text_content='" + text_content + '\'' +
                 '}';
     }
 }

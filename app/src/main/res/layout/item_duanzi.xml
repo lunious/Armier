@@ -2,20 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/d16"
     android:orientation="vertical">
 
+
     <TextView
-        android:id="@+id/duanzi_item"
+        android:id="@+id/duanzi_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/d10"
+        android:textColor="@color/mainTheme"
+        android:textSize="@dimen/d16" />
+
+    <TextView
+        android:id="@+id/duanzi_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d8"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/d14" />
+
+    <TextView
+        android:id="@+id/duanzi_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d10"
         android:textColor="@color/mainText"
-        android:textSize="@dimen/s18" />
+        android:textSize="@dimen/s16" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/p1"
-        android:layout_margin="@dimen/d10"
+        android:layout_height="@dimen/d1"
+        android:layout_marginTop="@dimen/d32"
         android:background="@color/lightGrey" />
 
 </LinearLayout>

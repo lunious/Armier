@@ -6,6 +6,7 @@
 
     <!--常用颜色值-->
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
     <color name="red">#ff0000</color>
     <color name="selector_grey">#F3F5F4</color>
     <color name="tab_gb">#F3F5F4</color>

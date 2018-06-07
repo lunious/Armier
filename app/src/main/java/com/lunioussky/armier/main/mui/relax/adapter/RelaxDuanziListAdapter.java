@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.entity.RelaxDuanziListBean;
+import com.lunioussky.armier.util.DateUtil;
 
 import java.util.List;
 
@@ -24,7 +25,9 @@ public class RelaxDuanziListAdapter extends BaseQuickAdapter<RelaxDuanziListBean
     @Override
     protected void convert(BaseViewHolder helper, RelaxDuanziListBean item) {
 
-        helper.setText(R.id.duanzi_item, item.getText());
+        helper.setText(R.id.duanzi_author, item.getComment_author());
+        helper.setText(R.id.duanzi_date, DateUtil.getTimestampString(DateUtil.string2Date(item.getComment_date(), "yyyy-MM-dd HH:mm:ss")));
+        helper.setText(R.id.duanzi_content, item.getText_content());
 
     }
 }
