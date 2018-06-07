@@ -8,9 +8,10 @@ import java.util.List;
  * Date: 2018/6/6 16:23
  * Description:
  */
-public class RelaxMeiziListBean implements Serializable {
+public class RelaxBoredListBean implements Serializable {
     private String comment_author;
     private String comment_date;
+    private String text_content;
     private List<String> pics;
 
     public String getComment_author() {
@@ -37,11 +38,20 @@ public class RelaxMeiziListBean implements Serializable {
         this.pics = pics;
     }
 
+    public String getText_content() {
+        return text_content;
+    }
+
+    public void setText_content(String text_content) {
+        this.text_content = text_content;
+    }
+
     @Override
     public String toString() {
-        return "RelaxMeiziListBean{" +
+        return "RelaxBoredListBean{" +
                 "comment_author='" + comment_author + '\'' +
                 ", comment_date='" + comment_date + '\'' +
+                ", text_content='" + text_content + '\'' +
                 ", pics=" + pics +
                 '}';
     }

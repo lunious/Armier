@@ -1,8 +1,7 @@
 package com.lunioussky.armier.main.mui.relax.fragment;
 
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -19,6 +18,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -50,14 +50,11 @@ public class RelaxMeiziListFragment extends BaseFragment<MeiziListBind> {
     }
 
     public void initRecyclerView() {
-        bindingView.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        bindingView.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         bindingView.recyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                final RelaxMeiziListBean data = (RelaxMeiziListBean) adapter.getData().get(position);
-                final String url = data.getUrl();
 
-                Toast.makeText(getContext(), "点我干啥" + url, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -83,24 +80,30 @@ public class RelaxMeiziListFragment extends BaseFragment<MeiziListBind> {
 
     public void requestData() {
 
-        OkGo.<String>get(JyApi.meizi + page)
+        OkGo.<String>post(JyApi.meizi)
+                .params("oxwlxojflwblxbsapi", "jandan.get_ooxx_comments")
+                .params("page", page)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
                         final JSONObject object = JSON.parseObject(response.body());
-                        final String error = object.getString("error");
-                        if ("false".equals(error)) {
-                            final JSONArray results = object.getJSONArray("results");
-                            if (results.size() > 0) {
-                                for (int i = 0; i < results.size(); i++) {
+                        final String status = object.getString("status");
+                        if ("ok".equals(status)) {
+                            final JSONArray comments = object.getJSONArray("comments");
+                            if (comments.size() > 0) {
+                                for (int i = 0; i < comments.size(); i++) {
                                     RelaxMeiziListBean listBean = new RelaxMeiziListBean();
-                                    JSONObject list = results.getJSONObject(i);
-                                    listBean.setUrl(list.getString("url"));
+                                    JSONObject list = comments.getJSONObject(i);
+                                    List pics = list.getJSONArray("pics");
+                                    listBean.setComment_author(list.getString("comment_author"));
+                                    listBean.setComment_date(list.getString("comment_date"));
+                                    listBean.setPics(pics);
                                     mDataList.add(listBean);
                                 }
                                 meiziListAdapter.loadMoreComplete();
                                 meiziListAdapter.notifyDataSetChanged();
                             }
+
                         }
                     }
                 });
