@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main.mui.home.fragment;
+package com.lunioussky.armier.main.mui.relax.fragment;
 
 
 import android.support.design.widget.TabLayout;
@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
-import com.lunioussky.armier.databinding.HomeFragmentBind;
-import com.lunioussky.armier.main.mui.home.adapter.HomeFragmentAdapter;
+import com.lunioussky.armier.databinding.RelaxFragmentBind;
+import com.lunioussky.armier.main.mui.relax.adapter.RelaxFragmentAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,16 +19,16 @@ import java.util.List;
  * Created by 11645 on 2018/3/13.
  */
 
-public class HomeFragment extends BaseFragment<HomeFragmentBind> {
+public class RelaxFragment extends BaseFragment<RelaxFragmentBind> {
 
 
     private final List<String> mList = new ArrayList<String>();
-    private HomeFragmentAdapter mAdapter;
+    private RelaxFragmentAdapter mAdapter;
 
 
     @Override
     public int setContent() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_relax;
     }
 
 
@@ -38,13 +38,10 @@ public class HomeFragment extends BaseFragment<HomeFragmentBind> {
         if (mList.size() > 0) {
             mList.clear();
         }
-
-        mList.add("热点");
-        mList.add("视频");
         mList.add("段子");
         mList.add("妹子");
 
-        mAdapter = new HomeFragmentAdapter(mList, getFragmentManager());
+        mAdapter = new RelaxFragmentAdapter(mList, getFragmentManager());
         bindingView.vpView.setAdapter(mAdapter);
         bindingView.tabLayout.setupWithViewPager(bindingView.vpView);
 

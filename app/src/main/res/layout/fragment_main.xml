@@ -69,7 +69,7 @@
                 android:layout_weight="1"
                 app:iconNormal="@mipmap/tab_micro_normal"
                 app:iconSelected="@mipmap/tab_micro_selected"
-                app:itemText="微头条"
+                app:itemText="休闲"
                 app:itemMarginTop="@dimen/d2_"
                 app:itemTextSize="@dimen/s10"
                 app:openTouchBg="true"

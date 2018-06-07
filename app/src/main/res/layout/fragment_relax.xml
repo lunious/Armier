@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data class="HomeFragmentBind">
+    <data class="RelaxFragmentBind">
 
     </data>
 
@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             app:tabBackground="@null"
-            app:tabGravity="center"
             app:tabIndicatorHeight="0dp"
             app:tabMode="fixed" />
 

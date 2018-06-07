@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Date: 2018/6/6 23:25
  * Description:
  */
-public class HomeDuanziListBean implements Serializable {
+public class RelaxDuanziListBean implements Serializable {
 
     private String text;
 
@@ -21,7 +21,7 @@ public class HomeDuanziListBean implements Serializable {
 
     @Override
     public String toString() {
-        return "HomeDuanziListBean{" +
+        return "RelaxDuanziListBean{" +
                 "text='" + text + '\'' +
                 '}';
     }

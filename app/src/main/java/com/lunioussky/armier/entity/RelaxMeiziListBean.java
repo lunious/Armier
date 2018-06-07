@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Date: 2018/6/6 16:23
  * Description:
  */
-public class HomeMeiziListBean implements Serializable {
+public class RelaxMeiziListBean implements Serializable {
     private String url;
 
     public String getUrl() {
@@ -20,7 +20,7 @@ public class HomeMeiziListBean implements Serializable {
 
     @Override
     public String toString() {
-        return "HomeMeiziListBean{" +
+        return "RelaxMeiziListBean{" +
                 "url='" + url + '\'' +
                 '}';
     }

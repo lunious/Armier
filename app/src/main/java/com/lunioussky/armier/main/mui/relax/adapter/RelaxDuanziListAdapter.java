@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main.mui.home.adapter;
+package com.lunioussky.armier.main.mui.relax.adapter;
 
 
 import android.support.annotation.Nullable;
@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.entity.HomeDuanziListBean;
+import com.lunioussky.armier.entity.RelaxDuanziListBean;
 
 import java.util.List;
 
@@ -15,14 +15,14 @@ import java.util.List;
  * Date: 2018/6/6 16:05
  * Description:
  */
-public class HomeDuanziListAdapter extends BaseQuickAdapter<HomeDuanziListBean, BaseViewHolder> {
+public class RelaxDuanziListAdapter extends BaseQuickAdapter<RelaxDuanziListBean, BaseViewHolder> {
 
-    public HomeDuanziListAdapter(int layoutResId, @Nullable List<HomeDuanziListBean> data) {
+    public RelaxDuanziListAdapter(int layoutResId, @Nullable List<RelaxDuanziListBean> data) {
         super(layoutResId, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, HomeDuanziListBean item) {
+    protected void convert(BaseViewHolder helper, RelaxDuanziListBean item) {
 
         helper.setText(R.id.duanzi_item, item.getText());
 

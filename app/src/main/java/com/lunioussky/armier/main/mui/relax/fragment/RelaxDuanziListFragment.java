@@ -1,8 +1,6 @@
-package com.lunioussky.armier.main.mui.home.fragment;
+package com.lunioussky.armier.main.mui.relax.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -15,11 +13,9 @@ import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.constant.JyConstant;
-import com.lunioussky.armier.databinding.HomeDuanziListBind;
-import com.lunioussky.armier.entity.HomeDuanziListBean;
-import com.lunioussky.armier.entity.HomeMeiziListBean;
-import com.lunioussky.armier.main.mui.home.adapter.HomeDuanziListAdapter;
-import com.lunioussky.armier.main.mui.home.adapter.HomeMeiziListAdapter;
+import com.lunioussky.armier.databinding.DuanziListBind;
+import com.lunioussky.armier.entity.RelaxDuanziListBean;
+import com.lunioussky.armier.main.mui.relax.adapter.RelaxDuanziListAdapter;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -31,20 +27,20 @@ import java.util.ArrayList;
  * Date: 2018/6/6 23:16
  * Description:
  */
-public class HomeDuanziListFragment extends BaseFragment<HomeDuanziListBind> {
+public class RelaxDuanziListFragment extends BaseFragment<DuanziListBind> {
 
-    private HomeDuanziListAdapter duanziListAdapter;
-    private ArrayList<HomeDuanziListBean> mDataList = new ArrayList<>();
+    private RelaxDuanziListAdapter duanziListAdapter;
+    private ArrayList<RelaxDuanziListBean> mDataList = new ArrayList<>();
     private int page = 1;
 
     @Override
     public int setContent() {
-        return R.layout.fragment_home_duanzi_list;
+        return R.layout.fragment_duanzi_list;
     }
 
 
-    public static HomeDuanziListFragment getInstance(String title) {
-        HomeDuanziListFragment sf = new HomeDuanziListFragment();
+    public static RelaxDuanziListFragment getInstance(String title) {
+        RelaxDuanziListFragment sf = new RelaxDuanziListFragment();
         return sf;
     }
 
@@ -64,7 +60,7 @@ public class HomeDuanziListFragment extends BaseFragment<HomeDuanziListBind> {
         bindingView.recyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                final HomeDuanziListBean data = (HomeDuanziListBean) adapter.getData().get(position);
+                final RelaxDuanziListBean data = (RelaxDuanziListBean) adapter.getData().get(position);
                 final String text = data.getText();
 
                 Toast.makeText(getContext(), "点我干啥\n" + text, Toast.LENGTH_LONG).show();
@@ -73,7 +69,7 @@ public class HomeDuanziListFragment extends BaseFragment<HomeDuanziListBind> {
     }
 
     public void initAdapter() {
-        duanziListAdapter = new HomeDuanziListAdapter(R.layout.item_duanzi, mDataList);
+        duanziListAdapter = new RelaxDuanziListAdapter(R.layout.item_duanzi, mDataList);
         //设置列表动画
         duanziListAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         bindingView.recyclerView.setAdapter(duanziListAdapter);
@@ -106,7 +102,7 @@ public class HomeDuanziListFragment extends BaseFragment<HomeDuanziListBind> {
                                 final JSONArray contentlist = pagebean.getJSONArray("contentlist");
                                 if (contentlist.size() > 0) {
                                     for (int i = 0; i < contentlist.size(); i++) {
-                                        HomeDuanziListBean listBean = new HomeDuanziListBean();
+                                        RelaxDuanziListBean listBean = new RelaxDuanziListBean();
                                         JSONObject list = contentlist.getJSONObject(i);
                                         listBean.setText(list.getString("text"));
                                         mDataList.add(listBean);

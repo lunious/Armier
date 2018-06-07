@@ -6,13 +6,14 @@ import android.support.annotation.Nullable;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarItem;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarLayout;
 import com.lunioussky.armier.databinding.MainFragmentBind;
-import com.lunioussky.armier.main.mui.home.fragment.HomeFragment;
+import com.lunioussky.armier.main.mui.relax.fragment.RelaxFragment;
 import com.lunioussky.armier.main.mui.mine.fragment.MineFragment;
-import com.lunioussky.armier.main.mui.news.fragment.NewsFragment;
+import com.lunioussky.armier.main.mui.index.fragment.IndexFragment;
 import com.lunioussky.armier.main.mui.video.fragment.VideoFragment;
 
 
@@ -43,11 +44,11 @@ public class MainFragment extends BaseFragment<MainFragmentBind> {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        BaseFragment firstFragment = findChildFragment(HomeFragment.class);
+        BaseFragment firstFragment = findChildFragment(IndexFragment.class);
         if (firstFragment == null) {
-            mFragments[FIRST] = new HomeFragment();
+            mFragments[FIRST] = new IndexFragment();
             mFragments[SECOND] = new VideoFragment();
-            mFragments[THIRD] = new NewsFragment();
+            mFragments[THIRD] = new RelaxFragment();
             mFragments[FOUR] = new MineFragment();
 
             loadMultipleRootFragment(R.id.fl_content, FIRST,
@@ -61,7 +62,7 @@ public class MainFragment extends BaseFragment<MainFragmentBind> {
             // 这里我们需要拿到mFragments的引用
             mFragments[FIRST] = firstFragment;
             mFragments[SECOND] = findChildFragment(VideoFragment.class);
-            mFragments[THIRD] = findChildFragment(NewsFragment.class);
+            mFragments[THIRD] = findChildFragment(RelaxFragment.class);
             mFragments[FOUR] = findChildFragment(MineFragment.class);
         }
 

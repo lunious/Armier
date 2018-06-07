@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main.mui.home.adapter;
+package com.lunioussky.armier.main.mui.relax.adapter;
 
 
 import android.support.annotation.Nullable;
@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.entity.HomeMeiziListBean;
+import com.lunioussky.armier.entity.RelaxMeiziListBean;
 import com.lunioussky.armier.main.view.GlideApp;
 
 import java.util.List;
@@ -17,21 +17,21 @@ import java.util.List;
  * Date: 2018/6/6 16:05
  * Description:
  */
-public class HomeMeiziListAdapter extends BaseQuickAdapter<HomeMeiziListBean, BaseViewHolder> {
+public class RelaxMeiziListAdapter extends BaseQuickAdapter<RelaxMeiziListBean, BaseViewHolder> {
 
-    public HomeMeiziListAdapter(int layoutResId, @Nullable List<HomeMeiziListBean> data) {
+    public RelaxMeiziListAdapter(int layoutResId, @Nullable List<RelaxMeiziListBean> data) {
         super(layoutResId, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, HomeMeiziListBean item) {
+    protected void convert(BaseViewHolder helper, RelaxMeiziListBean item) {
 
 
         // 加载网络图片
         GlideApp.with(mContext)
                 .load(item.getUrl())
-                .placeholder(R.mipmap.default_pic)
-                .error(R.mipmap.default_pic)
+                .placeholder(R.mipmap.img_default_meizi)
+                .error(R.mipmap.img_default_meizi)
                 .fitCenter()
                 .into((ImageView) helper.getView(R.id.meizi_item));
     }
