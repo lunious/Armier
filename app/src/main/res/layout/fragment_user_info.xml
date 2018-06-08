@@ -10,7 +10,7 @@
 
         <variable
             name="myClick"
-            type="com.lunioussky.armier.main.user.UserInfoFragment.MyClick" />
+            type="com.lunioussky.armier.main.user.fragment.UserInfoFragment.MyClick" />
 
     </data>
 

@@ -67,18 +67,21 @@ public class RelaxFreshListFragment extends BaseFragment<FreshListBind> {
             @Override
             public void onLoadMoreRequested() {
                 page++;
-                requestData();
+                requestData(false);
             }
         }, bindingView.recyclerView);
     }
 
     @Override
     public void initEvent() {
-        requestData();
+        requestData(true);
     }
 
-    public void requestData() {
-        bindingView.statusView.showLoading();
+    public void requestData(boolean showLoading) {
+        if (showLoading){
+            bindingView.statusView.showLoading();
+        }
+
         OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "get_recent_posts")
                 .params("page", page)

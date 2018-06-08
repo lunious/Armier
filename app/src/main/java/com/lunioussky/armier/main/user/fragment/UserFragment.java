@@ -1,28 +1,26 @@
-package com.lunioussky.armier.main.mui.mine.fragment;
+package com.lunioussky.armier.main.user.fragment;
 
 import android.view.View;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.databinding.MineFragmentBind;
 import com.lunioussky.armier.base.BaseFragment;
-
+import com.lunioussky.armier.databinding.UserFragmentBind;
 
 /**
- * Created by 11645 on 2018/3/13.
+ * Author: lunious
+ * Date: 2018/6/8 16:52
+ * Description:
  */
-
-
-public class MineFragment extends BaseFragment<MineFragmentBind> {
-
-
+public class UserFragment extends BaseFragment<UserFragmentBind> {
     @Override
     public int setContent() {
-        return R.layout.fragment_mine;
+        return R.layout.fragment_user;
     }
 
     @Override
-
     public void initData() {
+
     }
 
     @Override

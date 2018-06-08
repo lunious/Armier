@@ -83,19 +83,22 @@ public class VideoListFragment extends BaseFragment<videoListFragmentBind> {
             @Override
             public void onLoadMoreRequested() {
                 page++;
-                requestData();
+                requestData(false);
             }
         }, bindingView.recyclerView);
     }
 
     @Override
     public void initEvent() {
-        requestData();
+        requestData(true);
     }
 
-    public void requestData() {
+    public void requestData(boolean showLoading) {
+        if (showLoading){
+            bindingView.statusView.showLoading();
+        }
 
-        bindingView.statusView.showLoading();
+
         OkGo.<String>get(JyApi.iFeng + "?listtype=list" + "&typeid=" + mId + "&page=" + page)
                 .execute(new StringCallback() {
                     @Override
@@ -106,8 +109,10 @@ public class VideoListFragment extends BaseFragment<videoListFragmentBind> {
                         for (int i = 0; i < jsonArray.size(); i++) {
                             VideoListBean listBean = new VideoListBean();
                             JSONObject list = jsonArray.getJSONObject(i);
-                            listBean.setVideo_url(list.getString("video_url"));
-                            listBean.setImage(list.getString("image"));
+                            listBean.setVideoUrl(list.getString("video_url"));
+                            listBean.setImageUrl(list.getString("image"));
+                            listBean.setTitle(list.getString("title"));
+                            listBean.setLength(list.getLong("video_size"));
                             mDataList.add(listBean);
                         }
                         videoListAdapter.loadMoreComplete();

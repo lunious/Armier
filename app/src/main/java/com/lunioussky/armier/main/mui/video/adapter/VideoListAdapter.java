@@ -38,11 +38,17 @@ public class VideoListAdapter extends BaseQuickAdapter<VideoListBean, BaseViewHo
         params.height = (int) (params.width * 9f / 16f);    // 高度为宽度的9/16
         niceVideoPlayer.setLayoutParams(params);
         niceVideoPlayer.setController(controller);
+
+
+        controller.setTitle(item.getTitle());
+        controller.setLenght(item.getLength());
         GlideApp.with(helper.itemView.getContext())
-                .load(item.getImage())
+                .load(item.getImageUrl())
+                .placeholder(R.mipmap.img_default_meizi)
+                .centerCrop()
                 .into(controller.imageView());
 
-        niceVideoPlayer.setUp(item.getVideo_url(), null);
+        niceVideoPlayer.setUp(item.getVideoUrl(), null);
 
     }
 

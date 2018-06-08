@@ -1,6 +1,9 @@
 package com.lunioussky.armier.main.mui.index.fragment;
 
+import android.view.View;
+import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.IndexFragmentBind;
@@ -20,11 +23,20 @@ public class IndexFragment extends BaseFragment<IndexFragmentBind> {
 
     @Override
     public void initData() {
-        bindingView.setHint("空空如也");
+
     }
 
     @Override
     public void initEvent() {
+        bindingView.setOnClick(new OnClick());
+    }
+    public class OnClick {
+
+        public void onClickToUser(View view) {
+            ARouter.getInstance().build("/com/UserActivity").navigation();
+        }
 
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.lunioussky.armier.main.user;
+package com.lunioussky.armier.main.user.fragment;
 
 import android.view.View;
 import android.widget.Toast;

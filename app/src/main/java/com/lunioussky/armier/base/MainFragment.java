@@ -8,11 +8,11 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
 import com.lunioussky.armier.R;
+import com.lunioussky.armier.main.mui.lab.fragment.LabFragment;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarItem;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarLayout;
 import com.lunioussky.armier.databinding.MainFragmentBind;
 import com.lunioussky.armier.main.mui.relax.fragment.RelaxFragment;
-import com.lunioussky.armier.main.mui.mine.fragment.MineFragment;
 import com.lunioussky.armier.main.mui.index.fragment.IndexFragment;
 import com.lunioussky.armier.main.mui.video.fragment.VideoFragment;
 
@@ -49,7 +49,7 @@ public class MainFragment extends BaseFragment<MainFragmentBind> {
             mFragments[FIRST] = new IndexFragment();
             mFragments[SECOND] = new VideoFragment();
             mFragments[THIRD] = new RelaxFragment();
-            mFragments[FOUR] = new MineFragment();
+            mFragments[FOUR] = new LabFragment();
 
             loadMultipleRootFragment(R.id.fl_content, FIRST,
                     mFragments[FIRST],
@@ -63,7 +63,7 @@ public class MainFragment extends BaseFragment<MainFragmentBind> {
             mFragments[FIRST] = firstFragment;
             mFragments[SECOND] = findChildFragment(VideoFragment.class);
             mFragments[THIRD] = findChildFragment(RelaxFragment.class);
-            mFragments[FOUR] = findChildFragment(MineFragment.class);
+            mFragments[FOUR] = findChildFragment(LabFragment.class);
         }
 
     }

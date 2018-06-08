@@ -51,7 +51,7 @@ public class RelaxDuanziListFragment extends BaseFragment<DuanziListBind> {
 
     @Override
     public void initEvent() {
-        requestData();
+        requestData(true);
     }
 
     public void initRecyclerView() {
@@ -73,13 +73,15 @@ public class RelaxDuanziListFragment extends BaseFragment<DuanziListBind> {
             @Override
             public void onLoadMoreRequested() {
                 page++;
-                requestData();
+                requestData(false);
             }
         }, bindingView.recyclerView);
     }
 
-    public void requestData() {
-        bindingView.statusView.showLoading();
+    public void requestData(boolean showLoading) {
+        if (showLoading){
+            bindingView.statusView.showLoading();
+        }
         OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "jandan.get_duan_comments")
                 .params("page", page)

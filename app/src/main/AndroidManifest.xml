@@ -31,7 +31,8 @@
             android:name=".base.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".main.user.UserInfoActivity" />
+        <activity android:name=".main.user.activity.UserInfoActivity" />
+        <activity android:name=".main.user.activity.UserActivity" />
     </application>
 
 </manifest>

@@ -3,17 +3,23 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data class="MineFragmentBind">
-
+    <data class="UserFragmentBind">
         <variable
             name="onClick"
-            type="com.lunioussky.armier.main.mui.mine.fragment.MineFragment.OnClick" />
+            type="com.lunioussky.armier.main.user.fragment.UserFragment.OnClick" />
+
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/status_bar_height"
+            android:background="@color/mainTheme" />
 
 
         <RelativeLayout
