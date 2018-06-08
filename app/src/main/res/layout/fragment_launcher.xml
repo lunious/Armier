@@ -27,7 +27,7 @@
             <ImageView
                 android:id="@+id/gifImageView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d42"
+                android:layout_height="@dimen/d36"
                 android:layout_centerInParent="true" />
 
         </RelativeLayout>

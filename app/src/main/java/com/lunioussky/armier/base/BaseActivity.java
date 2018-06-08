@@ -52,4 +52,12 @@ public abstract class BaseActivity extends SwipeBackActivity {
     }
 
 
+    @Override
+    public void onBackPressedSupport() {
+        // 对于 4个类别的主Fragment内的回退back逻辑,已经在其onBackPressedSupport里各自处理了
+        super.onBackPressedSupport();
+    }
+
+
+
 }

@@ -12,7 +12,6 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
 import com.lunioussky.armier.base.BaseFragment;
-import com.lunioussky.armier.constant.JyConstant;
 import com.lunioussky.armier.databinding.DuanziListBind;
 import com.lunioussky.armier.entity.RelaxDuanziListBean;
 import com.lunioussky.armier.main.mui.relax.adapter.RelaxDuanziListAdapter;

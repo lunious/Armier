@@ -36,8 +36,5 @@ public class MineFragment extends BaseFragment<MineFragmentBind> {
             ARouter.getInstance().build("/com/UserInfoActivity").navigation();
         }
 
-        public void onClickToLucky(View view) {
-            ARouter.getInstance().build("/com/LuckyActivity").navigation();
-        }
     }
 }

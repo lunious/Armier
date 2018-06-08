@@ -15,6 +15,7 @@ import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.VideoFragmentBind;
 import com.lunioussky.armier.main.mui.video.adapter.VideoFragmentAdapter;
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 
@@ -30,6 +31,7 @@ import java.util.List;
 public class VideoFragment extends BaseFragment<VideoFragmentBind> {
     private final List<String> mList = new ArrayList<String>();
     private VideoFragmentAdapter mAdapter;
+    private boolean isInitCache = false;
 
     @Override
     public int setContent() {
@@ -43,6 +45,9 @@ public class VideoFragment extends BaseFragment<VideoFragmentBind> {
 
     public void requestData() {
         OkGo.<String>post(JyApi.iFeng)
+                .cacheKey("video_list_tab_cache")
+                .cacheMode(CacheMode.REQUEST_FAILED_READ_CACHE)
+                .cacheTime(3600 * 72000)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
@@ -65,7 +70,33 @@ public class VideoFragment extends BaseFragment<VideoFragmentBind> {
 
 
                     }
+
+                    @Override
+                    public void onCacheSuccess(Response<String> response) {
+                        if (!isInitCache) {
+                            final JSONArray jsonArray = JSON.parseArray(response.body());
+                            final JSONObject object = jsonArray.getJSONObject(0);
+                            final JSONArray array = object.getJSONArray("types");
+                            if (mList.size() > 0) {
+                                mList.clear();
+                            }
+                            for (int i = 0; i < array.size(); i++) {
+                                final JSONObject jsonObject = array.getJSONObject(i);
+                                final String name = jsonObject.getString("name");
+                                mList.add(name);
+                            }
+                            mAdapter = new VideoFragmentAdapter(mList, getFragmentManager());
+                            bindingView.vpVideo.setAdapter(mAdapter);
+                            bindingView.tabVideo.setupWithViewPager(bindingView.vpVideo);
+
+                            initTab();
+
+                            isInitCache = true;
+                        }
+
+                    }
                 });
+
 
     }
 
