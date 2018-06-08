@@ -68,5 +68,7 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.2.38'
     //NiceVieoPlayer
     implementation 'com.github.xiaoyanger0825:NiceVieoPlayer:v2.2'
+    //MultipleStatusView空白页
+    implementation 'com.classic.common:multiple-status-view:1.3'
 
 }

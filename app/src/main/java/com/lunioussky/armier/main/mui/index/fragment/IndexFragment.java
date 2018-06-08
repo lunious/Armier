@@ -20,7 +20,7 @@ public class IndexFragment extends BaseFragment<IndexFragmentBind> {
 
     @Override
     public void initData() {
-
+        bindingView.setHint("空空如也");
     }
 
     @Override

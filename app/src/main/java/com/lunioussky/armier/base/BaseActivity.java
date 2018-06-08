@@ -7,6 +7,7 @@ import android.support.v7.widget.ContentFrameLayout;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lunioussky.armier.R;
+import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
@@ -57,7 +58,6 @@ public abstract class BaseActivity extends SwipeBackActivity {
         // 对于 4个类别的主Fragment内的回退back逻辑,已经在其onBackPressedSupport里各自处理了
         super.onBackPressedSupport();
     }
-
 
 
 }

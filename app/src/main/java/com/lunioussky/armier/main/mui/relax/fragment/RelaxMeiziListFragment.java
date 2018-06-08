@@ -80,7 +80,7 @@ public class RelaxMeiziListFragment extends BaseFragment<MeiziListBind> {
     }
 
     public void requestData() {
-
+        bindingView.statusView.showLoading();
         OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "jandan.get_ooxx_comments")
                 .params("page", page)
@@ -103,6 +103,7 @@ public class RelaxMeiziListFragment extends BaseFragment<MeiziListBind> {
                                 }
                                 meiziListAdapter.loadMoreComplete();
                                 meiziListAdapter.notifyDataSetChanged();
+                                bindingView.statusView.showContent();
                             }
 
                         }

@@ -30,6 +30,7 @@ import java.util.List;
 
 public class VideoFragment extends BaseFragment<VideoFragmentBind> {
     private final List<String> mList = new ArrayList<String>();
+    private final List<String> mId = new ArrayList<String>();
     private VideoFragmentAdapter mAdapter;
     private boolean isInitCache = false;
 
@@ -60,9 +61,11 @@ public class VideoFragment extends BaseFragment<VideoFragmentBind> {
                         for (int i = 0; i < array.size(); i++) {
                             final JSONObject jsonObject = array.getJSONObject(i);
                             final String name = jsonObject.getString("name");
+                            final String id = jsonObject.getString("id");
                             mList.add(name);
+                            mId.add(id);
                         }
-                        mAdapter = new VideoFragmentAdapter(mList, getFragmentManager());
+                        mAdapter = new VideoFragmentAdapter(mList,mId, getFragmentManager());
                         bindingView.vpVideo.setAdapter(mAdapter);
                         bindingView.tabVideo.setupWithViewPager(bindingView.vpVideo);
 
@@ -83,9 +86,11 @@ public class VideoFragment extends BaseFragment<VideoFragmentBind> {
                             for (int i = 0; i < array.size(); i++) {
                                 final JSONObject jsonObject = array.getJSONObject(i);
                                 final String name = jsonObject.getString("name");
+                                final String id = jsonObject.getString("id");
                                 mList.add(name);
+                                mId.add(id);
                             }
-                            mAdapter = new VideoFragmentAdapter(mList, getFragmentManager());
+                            mAdapter = new VideoFragmentAdapter(mList,mId, getFragmentManager());
                             bindingView.vpVideo.setAdapter(mAdapter);
                             bindingView.tabVideo.setupWithViewPager(bindingView.vpVideo);
 

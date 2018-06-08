@@ -12,16 +12,13 @@ import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.FreshListBind;
-import com.lunioussky.armier.entity.RelaxBoredListBean;
 import com.lunioussky.armier.entity.RelaxFreshListBean;
-import com.lunioussky.armier.main.mui.relax.adapter.RelaxBoredListAdapter;
 import com.lunioussky.armier.main.mui.relax.adapter.RelaxFreshListAdapter;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Author: lunious
@@ -81,7 +78,7 @@ public class RelaxFreshListFragment extends BaseFragment<FreshListBind> {
     }
 
     public void requestData() {
-
+        bindingView.statusView.showLoading();
         OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "get_recent_posts")
                 .params("page", page)
@@ -109,6 +106,7 @@ public class RelaxFreshListFragment extends BaseFragment<FreshListBind> {
                                 }
                                 freshListAdapter.loadMoreComplete();
                                 freshListAdapter.notifyDataSetChanged();
+                                bindingView.statusView.showContent();
                             }
 
                         }

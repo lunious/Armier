@@ -4,6 +4,7 @@ package com.lunioussky.armier.base;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 
 /**
  * Created by 11645 on 2018/3/13.
@@ -30,6 +31,10 @@ public class MainActivity extends BaseActivity {
      */
     @Override
     public void onBackPressedSupport() {
+        // 在全屏或者小窗口时按返回键要先退出全屏或小窗口，
+        // 所以在Activity中onBackPress要交给NiceVideoPlayer先处理。
+        if (NiceVideoPlayerManager.instance().onBackPressd()) return;
+
         if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
             finish();
         } else {

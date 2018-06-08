@@ -2,7 +2,6 @@ package com.lunioussky.armier.main.mui.relax.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -79,7 +78,7 @@ public class RelaxBoredListFragment extends BaseFragment<BoredListBind> {
     }
 
     public void requestData() {
-
+        bindingView.statusView.showLoading();
         OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "jandan.get_pic_comments")
                 .params("page", page)
@@ -103,6 +102,8 @@ public class RelaxBoredListFragment extends BaseFragment<BoredListBind> {
                                 }
                                 relaxBoredListAdapter.loadMoreComplete();
                                 relaxBoredListAdapter.notifyDataSetChanged();
+
+                                bindingView.statusView.showContent();
                             }
 
                         }

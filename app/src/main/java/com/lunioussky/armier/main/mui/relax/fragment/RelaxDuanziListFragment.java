@@ -79,7 +79,7 @@ public class RelaxDuanziListFragment extends BaseFragment<DuanziListBind> {
     }
 
     public void requestData() {
-
+        bindingView.statusView.showLoading();
         OkGo.<String>post(JyApi.jandan)
                 .params("oxwlxojflwblxbsapi", "jandan.get_duan_comments")
                 .params("page", page)
@@ -101,6 +101,7 @@ public class RelaxDuanziListFragment extends BaseFragment<DuanziListBind> {
                                 }
                                 duanziListAdapter.loadMoreComplete();
                                 duanziListAdapter.notifyDataSetChanged();
+                                bindingView.statusView.showContent();
                             }
 
                         }
