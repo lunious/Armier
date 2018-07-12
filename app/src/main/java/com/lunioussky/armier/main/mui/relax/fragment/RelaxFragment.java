@@ -5,12 +5,10 @@ import android.support.design.widget.TabLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.RelaxFragmentBind;
 import com.lunioussky.armier.main.mui.relax.adapter.RelaxFragmentAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 

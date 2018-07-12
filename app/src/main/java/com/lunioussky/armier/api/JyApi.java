@@ -11,4 +11,6 @@ public abstract class JyApi {
     public static final String jandan = "http://i.jandan.net/";
     //凤凰视频接口
     public static final String iFeng = "http://api.iclient.ifeng.com/ifengvideoList";
+    public static final String indexTab = "http://www.lunious.com/wapi/zakerTab/";
+
 }
