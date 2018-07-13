@@ -17,7 +17,7 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
  * Date: 2018/6/2 21:42
  * Description: fragment的基类，一些公用逻辑可在此处理
  */
-public abstract class BaseFragment<BindingView extends ViewDataBinding> extends SwipeBackFragment {
+public abstract class BaseTabFragment<BindingView extends ViewDataBinding> extends SwipeBackFragment {
 
     // 布局view
     protected BindingView bindingView;

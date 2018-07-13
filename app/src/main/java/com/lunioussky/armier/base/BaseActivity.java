@@ -1,43 +1,35 @@
 package com.lunioussky.armier.base;
 
-import android.annotation.SuppressLint;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.ContentFrameLayout;
-import com.gyf.barlibrary.ImmersionBar;
-import com.lunioussky.armier.R;
-import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.gyf.barlibrary.ImmersionBar;
+
+import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
 /**
  * Author: lunious
- * Date: 2018/6/2 21:42
- * Description: activity的基类，一些公用逻辑可在此处理
+ * Date: 2018/7/13 16:19
+ * Description:
  */
+public abstract class BaseActivity<BindingView extends ViewDataBinding> extends SwipeBackActivity {
 
-public abstract class BaseActivity extends SwipeBackActivity {
-
+    // 布局view
+    protected BindingView bindingView;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //初始化，默认透明状态栏和黑色导航栏
         ImmersionBar.with(this).init();
-        initContainer(savedInstanceState);
+        bindingView = DataBindingUtil.setContentView(this,setContent());
+
+        initData();
+        initEvent();
+
     }
-
-    //用来容纳Fragment的容器
-    private void initContainer(@Nullable Bundle savedInstanceState) {
-        @SuppressLint("RestrictedApi") final ContentFrameLayout container = new ContentFrameLayout(this);
-        container.setId(R.id.fragment_container);
-        setContentView(container);
-        if (savedInstanceState == null) {
-            loadRootFragment(R.id.fragment_container, setRootFragment());
-        }
-    }
-
-    public abstract BaseFragment setRootFragment();
-
     @Override
     protected void onDestroy() {
         //不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
@@ -50,11 +42,19 @@ public abstract class BaseActivity extends SwipeBackActivity {
     }
 
 
-    @Override
-    public void onBackPressedSupport() {
-        // 对于 4个类别的主Fragment内的回退back逻辑,已经在其onBackPressedSupport里各自处理了
-        super.onBackPressedSupport();
-    }
+    /**
+     * 布局
+     */
+    public abstract int setContent();
 
+    /**
+     * 数据
+     */
+    public abstract void initData();
+
+    /**
+     * 事件
+     */
+    public abstract void initEvent();
 
 }

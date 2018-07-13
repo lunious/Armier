@@ -11,10 +11,10 @@ import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
  */
 
 @Route(path = "/com/MainActivity")
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseTabActivity {
 
     @Override
-    public BaseFragment setRootFragment() {
+    public BaseTabFragment setRootFragment() {
         //关闭侧换返回
         setSwipeBackEnable(false);
         return new MainFragment();

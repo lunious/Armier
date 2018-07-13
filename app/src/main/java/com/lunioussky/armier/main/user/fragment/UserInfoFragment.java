@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.base.BaseTabFragment;
 import com.lunioussky.armier.databinding.UserInfoFragmentBind;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
@@ -18,7 +18,7 @@ import com.lzy.okgo.model.Response;
  * Date: 2018/6/3 12:46
  * Description:
  */
-public class UserInfoFragment extends BaseFragment<UserInfoFragmentBind> {
+public class UserInfoFragment extends BaseTabFragment<UserInfoFragmentBind> {
 
 
 

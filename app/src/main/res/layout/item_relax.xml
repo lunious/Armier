@@ -45,6 +45,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
+            android:layout_marginLeft="@dimen/d4"
             android:visibility="gone"/>
 
     </LinearLayout>

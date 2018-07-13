@@ -10,7 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.base.BaseTabFragment;
 import com.lunioussky.armier.databinding.videoListFragmentBind;
 import com.lunioussky.armier.entity.VideoListBean;
 import com.lunioussky.armier.main.mui.video.adapter.VideoListAdapter;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
  * Date: 2018/6/7 20:58
  * Description:
  */
-public class VideoListFragment extends BaseFragment<videoListFragmentBind> {
+public class VideoListFragment extends BaseTabFragment<videoListFragmentBind> {
     private VideoListAdapter videoListAdapter;
     private ArrayList<VideoListBean> mDataList = new ArrayList<>();
     private String mId = null;

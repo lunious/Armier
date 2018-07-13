@@ -21,14 +21,14 @@ import com.lunioussky.armier.main.mui.video.fragment.VideoFragment;
  * Created by 11645 on 2018/3/16.
  */
 
-public class MainFragment extends BaseFragment<MainFragmentBind> {
+public class MainFragment extends BaseTabFragment<MainFragmentBind> {
 
     public static final int FIRST = 0;
     public static final int SECOND = 1;
     public static final int THIRD = 2;
     public static final int FOUR = 3;
 
-    private BaseFragment[] mFragments = new BaseFragment[4];
+    private BaseTabFragment[] mFragments = new BaseTabFragment[4];
 
     private BottomBarLayout mBottomBarLayout;
     private RotateAnimation mRotateAnimation;
@@ -44,7 +44,7 @@ public class MainFragment extends BaseFragment<MainFragmentBind> {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        BaseFragment firstFragment = findChildFragment(IndexFragment.class);
+        BaseTabFragment firstFragment = findChildFragment(IndexFragment.class);
         if (firstFragment == null) {
             mFragments[FIRST] = new IndexFragment();
             mFragments[SECOND] = new VideoFragment();

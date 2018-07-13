@@ -2,8 +2,8 @@ package com.lunioussky.armier.main.mui.index.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -11,14 +11,13 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.base.BaseTabFragment;
 import com.lunioussky.armier.databinding.relaxListFragmentBind;
 import com.lunioussky.armier.entity.IndexListBean;
 import com.lunioussky.armier.main.mui.index.adapter.IndexListAdapter;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
-
 import java.util.ArrayList;
 
 /**
@@ -26,7 +25,7 @@ import java.util.ArrayList;
  * Date: 2018/7/13 10:26
  * Description:
  */
-public class IndexListFragment extends BaseFragment<relaxListFragmentBind> {
+public class IndexListFragment extends BaseTabFragment<relaxListFragmentBind> {
 
     private String mTitle = null;
     private IndexListAdapter mAdapter;
@@ -56,7 +55,10 @@ public class IndexListFragment extends BaseFragment<relaxListFragmentBind> {
         bindingView.recyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Toast.makeText(getContext(), "暂时别点", Toast.LENGTH_SHORT).show();
+//                IndexListBean bean = (IndexListBean) adapter.getData().get(position);
+//                String url = bean.getzDetailLink();
+//                ARouter.getInstance().build("/com/IndexDetailActivity").withString("url",url).navigation();
+                
             }
         });
     }

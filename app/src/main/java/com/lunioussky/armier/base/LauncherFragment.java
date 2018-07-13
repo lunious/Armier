@@ -15,7 +15,7 @@ import com.lunioussky.armier.util.PerfectClickListener;
  * Date: 2018/6/6 9:39
  * Description:
  */
-public class LauncherFragment extends BaseFragment<LauncherFragmentBind> {
+public class LauncherFragment extends BaseTabFragment<LauncherFragmentBind> {
     private Boolean isIn = false;
 
     @Override

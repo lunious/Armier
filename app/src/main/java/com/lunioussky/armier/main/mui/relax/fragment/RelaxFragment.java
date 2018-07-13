@@ -2,7 +2,7 @@ package com.lunioussky.armier.main.mui.relax.fragment;
 
 
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.base.BaseTabFragment;
 import com.lunioussky.armier.databinding.RelaxFragmentBind;
 
 
@@ -11,7 +11,7 @@ import com.lunioussky.armier.databinding.RelaxFragmentBind;
  * Created by 11645 on 2018/3/13.
  */
 
-public class RelaxFragment extends BaseFragment<RelaxFragmentBind> {
+public class RelaxFragment extends BaseTabFragment<RelaxFragmentBind> {
 
 
 

@@ -11,7 +11,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.base.BaseTabFragment;
 import com.lunioussky.armier.databinding.VideoFragmentBind;
 import com.lunioussky.armier.main.mui.video.adapter.VideoFragmentAdapter;
 import com.lzy.okgo.OkGo;
@@ -26,7 +26,7 @@ import java.util.List;
  * Created by 11645 on 2018/3/13.
  */
 
-public class VideoFragment extends BaseFragment<VideoFragmentBind> {
+public class VideoFragment extends BaseTabFragment<VideoFragmentBind> {
     private final List<String> mList = new ArrayList<String>();
     private final List<String> mId = new ArrayList<String>();
     private VideoFragmentAdapter mAdapter;

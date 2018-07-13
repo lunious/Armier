@@ -1,8 +1,8 @@
 package com.lunioussky.armier.main.user.activity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.lunioussky.armier.base.BaseActivity;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.base.BaseTabActivity;
+import com.lunioussky.armier.base.BaseTabFragment;
 import com.lunioussky.armier.main.user.fragment.UserFragment;
 
 /**
@@ -11,9 +11,9 @@ import com.lunioussky.armier.main.user.fragment.UserFragment;
  * Description:
  */
 @Route(path = "/com/UserActivity")
-public class UserActivity extends BaseActivity {
+public class UserActivity extends BaseTabActivity {
     @Override
-    public BaseFragment setRootFragment() {
+    public BaseTabFragment setRootFragment() {
         return new UserFragment();
     }
 }

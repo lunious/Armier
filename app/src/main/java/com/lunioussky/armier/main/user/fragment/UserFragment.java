@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.base.BaseTabFragment;
 import com.lunioussky.armier.databinding.UserFragmentBind;
 
 /**
@@ -12,7 +12,7 @@ import com.lunioussky.armier.databinding.UserFragmentBind;
  * Date: 2018/6/8 16:52
  * Description:
  */
-public class UserFragment extends BaseFragment<UserFragmentBind> {
+public class UserFragment extends BaseTabFragment<UserFragmentBind> {
     @Override
     public int setContent() {
         return R.layout.fragment_user;

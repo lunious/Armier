@@ -11,7 +11,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
-import com.lunioussky.armier.base.BaseFragment;
+import com.lunioussky.armier.base.BaseTabFragment;
 import com.lunioussky.armier.databinding.IndexFragmentBind;
 import com.lunioussky.armier.main.mui.index.adapter.IndexFragmentAdapter;
 import com.lzy.okgo.OkGo;
@@ -25,7 +25,7 @@ import java.util.List;
  * Created by 11645 on 2018/3/13.
  */
 
-public class IndexFragment extends BaseFragment<IndexFragmentBind> {
+public class IndexFragment extends BaseTabFragment<IndexFragmentBind> {
 
     private final List<String> mList = new ArrayList<String>();
     private IndexFragmentAdapter mAdapter;
