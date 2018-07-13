@@ -46,9 +46,9 @@ public class MainFragment extends BaseFragment<MainFragmentBind> {
         super.onActivityCreated(savedInstanceState);
         BaseFragment firstFragment = findChildFragment(IndexFragment.class);
         if (firstFragment == null) {
-            mFragments[FIRST] = new RelaxFragment();
+            mFragments[FIRST] = new IndexFragment();
             mFragments[SECOND] = new VideoFragment();
-            mFragments[THIRD] = new IndexFragment();
+            mFragments[THIRD] = new RelaxFragment();
             mFragments[FOUR] = new LabFragment();
 
             loadMultipleRootFragment(R.id.fl_content, FIRST,
@@ -62,7 +62,7 @@ public class MainFragment extends BaseFragment<MainFragmentBind> {
             // 这里我们需要拿到mFragments的引用
             mFragments[FIRST] = firstFragment;
             mFragments[SECOND] = findChildFragment(VideoFragment.class);
-            mFragments[THIRD] = findChildFragment(IndexFragment.class);
+            mFragments[THIRD] = findChildFragment(RelaxFragment.class);
             mFragments[FOUR] = findChildFragment(LabFragment.class);
         }
 

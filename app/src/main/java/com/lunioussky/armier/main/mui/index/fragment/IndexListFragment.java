@@ -1,8 +1,6 @@
-package com.lunioussky.armier.main.mui.relax.fragment;
+package com.lunioussky.armier.main.mui.index.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -15,8 +13,8 @@ import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.relaxListFragmentBind;
-import com.lunioussky.armier.entity.RelaxListBean;
-import com.lunioussky.armier.main.mui.relax.adapter.RelaxListAdapter;
+import com.lunioussky.armier.entity.IndexListBean;
+import com.lunioussky.armier.main.mui.index.adapter.IndexListAdapter;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -28,15 +26,15 @@ import java.util.ArrayList;
  * Date: 2018/7/13 10:26
  * Description:
  */
-public class RelaxListFragment extends BaseFragment<relaxListFragmentBind> {
+public class IndexListFragment extends BaseFragment<relaxListFragmentBind> {
 
     private String mTitle = null;
-    private RelaxListAdapter mAdapter;
-    private ArrayList<RelaxListBean> mDataList = new ArrayList<>();
+    private IndexListAdapter mAdapter;
+    private ArrayList<IndexListBean> mDataList = new ArrayList<>();
     private int page = 1;
 
-    public static RelaxListFragment getInstance(String title) {
-        RelaxListFragment sf = new RelaxListFragment();
+    public static IndexListFragment getInstance(String title) {
+        IndexListFragment sf = new IndexListFragment();
         sf.mTitle = title;
         return sf;
     }
@@ -64,7 +62,7 @@ public class RelaxListFragment extends BaseFragment<relaxListFragmentBind> {
     }
 
     public void initAdapter() {
-        mAdapter = new RelaxListAdapter(R.layout.item_relax, mDataList);
+        mAdapter = new IndexListAdapter(R.layout.item_relax, mDataList);
         //设置列表动画
         mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         bindingView.recyclerView.setAdapter(mAdapter);
@@ -94,7 +92,7 @@ public class RelaxListFragment extends BaseFragment<relaxListFragmentBind> {
                         final JSONArray array = object.getJSONArray("results");
                         if (array.size() > 0) {
                             for (int i = 0; i < array.size(); i++) {
-                                RelaxListBean bean = new RelaxListBean();
+                                IndexListBean bean = new IndexListBean();
                                 JSONObject list = array.getJSONObject(i);
                                 bean.setzTitle(list.getString("zTitle"));
                                 bean.setzSubtitle(list.getString("zSubtitle"));

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Date: 2018/7/13 11:57
  * Description:
  */
-public class RelaxListBean implements Serializable {
+public class IndexListBean implements Serializable {
     private String zTitle;
     private String zSubtitle;
     private String sSubImageLink;
@@ -57,7 +57,7 @@ public class RelaxListBean implements Serializable {
 
     @Override
     public String toString() {
-        return "RelaxListBean{" +
+        return "IndexListBean{" +
                 "zTitle='" + zTitle + '\'' +
                 ", zSubtitle='" + zSubtitle + '\'' +
                 ", sSubImageLink='" + sSubImageLink + '\'' +
