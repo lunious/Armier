@@ -2,13 +2,21 @@ package com.lunioussky.armier.main.mui.relax.fragment;
 
 
 import android.support.design.widget.TabLayout;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.lunioussky.armier.R;
+import com.lunioussky.armier.api.JyApi;
 import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.databinding.RelaxFragmentBind;
 import com.lunioussky.armier.main.mui.relax.adapter.RelaxFragmentAdapter;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,23 +41,39 @@ public class RelaxFragment extends BaseFragment<RelaxFragmentBind> {
     @Override
     public void initData() {
 
-        if (mList.size() > 0) {
-            mList.clear();
-        }
-        mList.add("新鲜事");
-        mList.add("无聊图");
-        mList.add("妹子图");
-        mList.add("段子");
 
-        mAdapter = new RelaxFragmentAdapter(mList, getFragmentManager());
-        bindingView.vpView.setAdapter(mAdapter);
-        bindingView.tabLayout.setupWithViewPager(bindingView.vpView);
+        OkGo.<String>get(JyApi.indexTab)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        final JSONObject object = JSON.parseObject(response.body());
+                        final JSONArray array = object.getJSONArray("results");
+                        if (array.size() > 0) {
+                            if (mList.size() > 0) {
+                                mList.clear();
+                            }
+                            for (int i = 0; i < array.size(); i++) {
+                                final JSONObject jsonObject = array.getJSONObject(i);
+                                final String name = jsonObject.getString("tabName");
+                                if (!TextUtils.isEmpty(name)) {
+                                    mList.add(name);
+                                }
+                            }
+
+                            mAdapter = new RelaxFragmentAdapter(mList, getFragmentManager());
+                            bindingView.vpView.setAdapter(mAdapter);
+                            bindingView.tabLayout.setupWithViewPager(bindingView.vpView);
+
+                            initTab();
+                        }
+
+                    }
+                });
+
 
     }
 
-    @Override
-    public void initEvent() {
-
+    public void initTab() {
         for (int i = 0; i < bindingView.tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = bindingView.tabLayout.getTabAt(i);
             if (tab != null) {
@@ -78,6 +102,10 @@ public class RelaxFragment extends BaseFragment<RelaxFragmentBind> {
 
             }
         });
+    }
+
+    @Override
+    public void initEvent() {
 
     }
 
@@ -103,7 +131,6 @@ public class RelaxFragment extends BaseFragment<RelaxFragmentBind> {
             select.setTextColor(getResources().getColor(R.color.tab_normal_color));
 
         }
-
 
     }
 }

@@ -23,7 +23,7 @@
             android:layout_height="42dp"
             app:tabBackground="@null"
             app:tabIndicatorHeight="0dp"
-            app:tabMode="fixed" />
+            app:tabMode="scrollable" />
 
         <View
             android:layout_width="match_parent"

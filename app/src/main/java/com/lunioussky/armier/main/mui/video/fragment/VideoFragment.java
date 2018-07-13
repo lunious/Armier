@@ -2,6 +2,7 @@ package com.lunioussky.armier.main.mui.video.fragment;
 
 
 import android.support.design.widget.TabLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -91,6 +92,7 @@ public class VideoFragment extends BaseFragment<VideoFragmentBind> {
                             bindingView.vpVideo.setAdapter(mAdapter);
                             bindingView.tabVideo.setupWithViewPager(bindingView.vpVideo);
 
+                            Log.d("JASDUYHASDASDSAD",mList.toString());
                             initTab();
 
                             isInitCache = true;
