@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/d10"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d100"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="@dimen/d0"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="2">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="标题"
+                android:textSize="@dimen/s16"
+                android:textColor="@color/mainText"
+                android:layout_alignParentTop="true"/>
+
+            <TextView
+                android:id="@+id/tv_ly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="来源"
+                android:textSize="@dimen/s14"
+                android:textColor="@color/gray"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/relax_item"
+            android:layout_width="@dimen/d0"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d1"
+        android:layout_marginTop="@dimen/d10"
+        android:background="@color/lightGrey" />
+
+</LinearLayout>

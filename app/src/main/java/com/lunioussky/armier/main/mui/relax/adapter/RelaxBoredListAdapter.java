@@ -2,7 +2,6 @@ package com.lunioussky.armier.main.mui.relax.adapter;
 
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lunioussky.armier.R;
