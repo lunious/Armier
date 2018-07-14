@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#D33D3C</color>
-    <color name="colorPrimaryDark">#D33D3C</color>
-    <color name="colorAccent">#D33D3C</color>
+
+    <color name="main_theme_color">#21a9ff</color>
+
+    <color name="colorPrimary">#21a9ff</color>
+    <color name="colorPrimaryDark">#21a9ff</color>
+    <color name="colorAccent">#21a9ff</color>
+
+
+    <color name="tab_icon_unselect">#c6c6c6</color>
+    <color name="tab_text_unselect">#6c6c6c</color>
+    <color name="main_status_red">#FF6666</color>
+
 
     <!--常用颜色值-->
     <color name="white">#ffffff</color>
@@ -17,6 +26,9 @@
     <color name="lightGrey">#E9E9E9</color>
     <color name="gray">#808080</color>
     <color name="mainText">#3c3c3c</color>
+
+    <color name="light_grey">#ffcccccc</color>
+
 
 
 </resources>

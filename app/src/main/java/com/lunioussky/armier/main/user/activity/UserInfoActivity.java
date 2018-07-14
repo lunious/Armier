@@ -1,9 +1,11 @@
 package com.lunioussky.armier.main.user.activity;
 
+import android.os.Bundle;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.lunioussky.armier.base.BaseTabActivity;
-import com.lunioussky.armier.base.BaseTabFragment;
-import com.lunioussky.armier.main.user.fragment.UserInfoFragment;
+import com.lunioussky.armier.R;
+import com.lunioussky.armier.base.BaseActivity;
+
 
 /**
  * Author: lunious
@@ -11,9 +13,21 @@ import com.lunioussky.armier.main.user.fragment.UserInfoFragment;
  * Description:
  */
 @Route(path = "/com/UserInfoActivity")
-public class UserInfoActivity extends BaseTabActivity {
+public class UserInfoActivity extends BaseActivity {
+
+
     @Override
-    public BaseTabFragment setRootFragment() {
-        return new UserInfoFragment();
+    protected int getLayoutId() {
+        return R.layout.activity_user_info;
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    protected void initEvent(Bundle savedInstanceState) {
+
     }
 }

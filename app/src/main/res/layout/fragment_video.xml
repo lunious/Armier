@@ -1,41 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data class = "VideoFragmentBind">
 
-    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/status_bar_height"
-            android:background="@color/mainTheme" />
+        android:layout_height="@dimen/status_bar_height"
+        android:background="@color/mainTheme" />
 
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tab_video"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            app:tabBackground="@null"
-            app:tabIndicatorHeight="0dp"
-            app:tabMode="scrollable" />
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_video"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        app:tabBackground="@null"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/p1"
-            android:background="@color/lightGrey" />
-
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vp_video"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/p1"
+        android:background="@color/lightGrey" />
 
 
-    </LinearLayout>
-</layout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

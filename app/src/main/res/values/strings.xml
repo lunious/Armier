@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">简阅</string>
+    <string name="index">首页</string>
+    <string name="video">视频</string>
+    <string name="relax">休闲</string>
+    <string name="lab">实验室</string>
 </resources>

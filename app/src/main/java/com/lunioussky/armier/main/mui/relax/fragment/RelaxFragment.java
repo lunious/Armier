@@ -1,9 +1,10 @@
 package com.lunioussky.armier.main.mui.relax.fragment;
 
 
+import android.os.Bundle;
+
 import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseTabFragment;
-import com.lunioussky.armier.databinding.RelaxFragmentBind;
+import com.lunioussky.armier.base.BaseFragment;
 
 
 
@@ -11,27 +12,21 @@ import com.lunioussky.armier.databinding.RelaxFragmentBind;
  * Created by 11645 on 2018/3/13.
  */
 
-public class RelaxFragment extends BaseTabFragment<RelaxFragmentBind> {
-
+public class RelaxFragment extends BaseFragment {
 
 
     @Override
-    public int setContent() {
+    protected int getLayoutId() {
         return R.layout.fragment_relax;
     }
 
-
     @Override
-    public void initData() {
-
+    protected void initData(Bundle savedInstanceState) {
 
     }
 
-
-
     @Override
-    public void initEvent() {
+    protected void initEnvent(Bundle savedInstanceState) {
 
     }
-
 }

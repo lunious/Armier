@@ -1,106 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data class="MainFragmentBind">
-
-    </data>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-
-        <FrameLayout
-            android:id="@+id/fl_content"
+        <com.lunioussky.armier.base.NoScrollViewPager
+            android:id="@+id/vp_main"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d0"
+            android:layout_height="0dp"
             android:layout_weight="1" />
 
-
-        <com.lunioussky.armier.main.view.bottomBar.BottomBarLayout
-            android:id="@+id/bbl"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d48"
-            android:layout_gravity="center"
-            android:background="@color/tab_gb"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="@dimen/p1"
+            android:background="@color/light_grey" />
 
+        <com.lunioussky.armier.main.view.bottomBar.BottomBar
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d52" />
 
-            <com.lunioussky.armier.main.view.bottomBar.BottomBarItem
-                android:layout_width="@dimen/d0"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:iconNormal="@mipmap/tab_home_normal"
-                app:iconSelected="@mipmap/tab_home_selected"
-                app:itemText="首页"
-                app:itemMarginTop="@dimen/d2"
-                app:iconHeight="@dimen/d24"
-                app:iconWidth="@dimen/d24"
-                app:itemPadding="@dimen/d2"
-                app:itemTextSize="@dimen/s10"
-                app:openTouchBg="true"
-                app:textColorNormal="@color/tab_normal_color"
-                app:textColorSelected="@color/tab_selected_color"
-                app:touchDrawable="@drawable/selector_bg" />
-
-            <com.lunioussky.armier.main.view.bottomBar.BottomBarItem
-                android:layout_width="@dimen/d0"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:iconNormal="@mipmap/tab_video_normal"
-                app:iconSelected="@mipmap/tab_video_selected"
-                app:itemText="视频"
-                app:itemMarginTop="@dimen/d2"
-                app:iconHeight="@dimen/d24"
-                app:iconWidth="@dimen/d24"
-                app:itemPadding="@dimen/d2"
-                app:itemTextSize="@dimen/s10"
-                app:openTouchBg="true"
-                app:textColorNormal="@color/tab_normal_color"
-                app:textColorSelected="@color/tab_selected_color"
-                app:touchDrawable="@drawable/selector_bg" />
-
-
-            <com.lunioussky.armier.main.view.bottomBar.BottomBarItem
-                android:layout_width="@dimen/d0"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:iconNormal="@mipmap/tab_micro_normal"
-                app:iconSelected="@mipmap/tab_micro_selected"
-                app:itemText="休闲"
-                app:itemMarginTop="@dimen/d2"
-                app:iconHeight="@dimen/d24"
-                app:iconWidth="@dimen/d24"
-                app:itemPadding="@dimen/d2"
-                app:itemTextSize="@dimen/s10"
-                app:openTouchBg="true"
-                app:textColorNormal="@color/tab_normal_color"
-                app:textColorSelected="@color/tab_selected_color"
-                app:touchDrawable="@drawable/selector_bg" />
-
-            <com.lunioussky.armier.main.view.bottomBar.BottomBarItem
-                android:layout_width="@dimen/d0"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:iconNormal="@mipmap/tab_lab_normal"
-                app:iconSelected="@mipmap/tab_lab_selected"
-                app:itemText="实验室"
-                app:itemMarginTop="@dimen/d2"
-                app:iconHeight="@dimen/d24"
-                app:iconWidth="@dimen/d24"
-                app:itemPadding="@dimen/d2"
-                app:itemTextSize="@dimen/s10"
-                app:openTouchBg="true"
-                app:textColorNormal="@color/tab_normal_color"
-                app:textColorSelected="@color/tab_selected_color"
-                app:touchDrawable="@drawable/selector_bg" />
-
-
-        </com.lunioussky.armier.main.view.bottomBar.BottomBarLayout>
 
     </LinearLayout>
-</layout>
+
+</android.support.constraint.ConstraintLayout>

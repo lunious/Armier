@@ -1,17 +1,21 @@
 package com.lunioussky.armier.main.mui.video.fragment;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.classic.common.MultipleStatusView;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
-import com.lunioussky.armier.base.BaseTabFragment;
-import com.lunioussky.armier.databinding.videoListFragmentBind;
+import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.entity.VideoListBean;
 import com.lunioussky.armier.main.mui.video.adapter.VideoListAdapter;
 import com.lzy.okgo.OkGo;
@@ -22,13 +26,22 @@ import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 
 /**
  * Author: lunious
  * Date: 2018/6/7 20:58
  * Description:
  */
-public class VideoListFragment extends BaseTabFragment<videoListFragmentBind> {
+public class VideoListFragment extends BaseFragment {
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+    @BindView(R.id.statusView)
+    MultipleStatusView statusView;
+
     private VideoListAdapter videoListAdapter;
     private ArrayList<VideoListBean> mDataList = new ArrayList<>();
     private String mId = null;
@@ -40,26 +53,16 @@ public class VideoListFragment extends BaseTabFragment<videoListFragmentBind> {
         return sf;
     }
 
-    @Override
-    public int setContent() {
-        return R.layout.fragment_video_list;
-    }
-
-    @Override
-    public void initData() {
-        initRecyclerView();
-        initAdapter();
-    }
 
     public void initRecyclerView() {
-        bindingView.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        bindingView.recyclerView.addOnItemTouchListener(new OnItemClickListener() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
 
             }
         });
-        bindingView.recyclerView.setRecyclerListener(new RecyclerView.RecyclerListener() {
+        recyclerView.setRecyclerListener(new RecyclerView.RecyclerListener() {
             @Override
             public void onViewRecycled(RecyclerView.ViewHolder holder) {
                 NiceVideoPlayer niceVideoPlayer = videoListAdapter.niceVideoPlayer;
@@ -76,7 +79,7 @@ public class VideoListFragment extends BaseTabFragment<videoListFragmentBind> {
         videoListAdapter = new VideoListAdapter(R.layout.item_video, mDataList);
         //设置列表动画
         videoListAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
-        bindingView.recyclerView.setAdapter(videoListAdapter);
+        recyclerView.setAdapter(videoListAdapter);
 
         videoListAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
@@ -84,17 +87,13 @@ public class VideoListFragment extends BaseTabFragment<videoListFragmentBind> {
                 page++;
                 requestData(false);
             }
-        }, bindingView.recyclerView);
+        }, recyclerView);
     }
 
-    @Override
-    public void initEvent() {
-        requestData(true);
-    }
 
     public void requestData(boolean showLoading) {
-        if (showLoading){
-            bindingView.statusView.showLoading();
+        if (showLoading) {
+            statusView.showLoading();
         }
 
 
@@ -117,7 +116,7 @@ public class VideoListFragment extends BaseTabFragment<videoListFragmentBind> {
                         videoListAdapter.loadMoreComplete();
                         videoListAdapter.notifyDataSetChanged();
 
-                        bindingView.statusView.showContent();
+                        statusView.showContent();
                     }
                 });
     }
@@ -127,6 +126,22 @@ public class VideoListFragment extends BaseTabFragment<videoListFragmentBind> {
         super.onStop();
         // 在onStop时释放掉播放器
         NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_video_list;
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+        initRecyclerView();
+        initAdapter();
+    }
+
+    @Override
+    protected void initEnvent(Bundle savedInstanceState) {
+        requestData(true);
     }
 
 }

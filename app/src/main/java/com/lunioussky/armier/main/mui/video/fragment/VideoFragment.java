@@ -1,46 +1,49 @@
 package com.lunioussky.armier.main.mui.video.fragment;
 
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
-import com.lunioussky.armier.base.BaseTabFragment;
-import com.lunioussky.armier.databinding.VideoFragmentBind;
+import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.main.mui.video.adapter.VideoFragmentAdapter;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 /**
  * Created by 11645 on 2018/3/13.
  */
 
-public class VideoFragment extends BaseTabFragment<VideoFragmentBind> {
+public class VideoFragment extends BaseFragment {
     private final List<String> mList = new ArrayList<String>();
     private final List<String> mId = new ArrayList<String>();
+    @BindView(R.id.tab_video)
+    TabLayout tabVideo;
+    @BindView(R.id.vp_video)
+    ViewPager vpVideo;
     private VideoFragmentAdapter mAdapter;
     private boolean isInitCache = false;
 
-    @Override
-    public int setContent() {
-        return R.layout.fragment_video;
-    }
-
-    @Override
-    public void initData() {
-        requestData();
-    }
 
     public void requestData() {
         OkGo.<String>post(JyApi.iFeng)
@@ -63,9 +66,9 @@ public class VideoFragment extends BaseTabFragment<VideoFragmentBind> {
                             mList.add(name);
                             mId.add(id);
                         }
-                        mAdapter = new VideoFragmentAdapter(mList,mId, getFragmentManager());
-                        bindingView.vpVideo.setAdapter(mAdapter);
-                        bindingView.tabVideo.setupWithViewPager(bindingView.vpVideo);
+                        mAdapter = new VideoFragmentAdapter(mList, mId, getFragmentManager());
+                        vpVideo.setAdapter(mAdapter);
+                        tabVideo.setupWithViewPager(vpVideo);
 
                         initTab();
 
@@ -88,11 +91,11 @@ public class VideoFragment extends BaseTabFragment<VideoFragmentBind> {
                                 mList.add(name);
                                 mId.add(id);
                             }
-                            mAdapter = new VideoFragmentAdapter(mList,mId, getFragmentManager());
-                            bindingView.vpVideo.setAdapter(mAdapter);
-                            bindingView.tabVideo.setupWithViewPager(bindingView.vpVideo);
+                            mAdapter = new VideoFragmentAdapter(mList, mId, getFragmentManager());
+                            vpVideo.setAdapter(mAdapter);
+                            tabVideo.setupWithViewPager(vpVideo);
 
-                            Log.d("JASDUYHASDASDSAD",mList.toString());
+                            Log.d("JASDUYHASDASDSAD", mList.toString());
                             initTab();
 
                             isInitCache = true;
@@ -104,23 +107,19 @@ public class VideoFragment extends BaseTabFragment<VideoFragmentBind> {
 
     }
 
-    @Override
-    public void initEvent() {
-
-    }
 
     public void initTab() {
-        for (int i = 0; i < bindingView.tabVideo.getTabCount(); i++) {
-            TabLayout.Tab tab = bindingView.tabVideo.getTabAt(i);
+        for (int i = 0; i < tabVideo.getTabCount(); i++) {
+            TabLayout.Tab tab = tabVideo.getTabAt(i);
             if (tab != null) {
                 tab.setCustomView(getTabView(i));
             }
 
         }
 
-        updateTabTextView(bindingView.tabVideo.getTabAt(bindingView.tabVideo.getSelectedTabPosition()), true);
+        updateTabTextView(tabVideo.getTabAt(tabVideo.getSelectedTabPosition()), true);
 
-        bindingView.tabVideo.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabVideo.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 updateTabTextView(tab, true);
@@ -161,6 +160,21 @@ public class VideoFragment extends BaseTabFragment<VideoFragmentBind> {
 
         }
 
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_video;
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+        requestData();
+    }
+
+    @Override
+    protected void initEnvent(Bundle savedInstanceState) {
 
     }
 

@@ -2,14 +2,17 @@ package com.lunioussky.armier.main.mui.index.detail;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
+import android.widget.LinearLayout;
+
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.base.BaseActivity;
-import com.lunioussky.armier.databinding.IndexDetailBind;
+
+import butterknife.BindView;
 
 /**
  * Author: lunious
@@ -17,14 +20,13 @@ import com.lunioussky.armier.databinding.IndexDetailBind;
  * Description:
  */
 @Route(path = "/com/IndexDetailActivity")
-public class IndexDetailActivity extends BaseActivity<IndexDetailBind> {
+public class IndexDetailActivity extends BaseActivity {
     @Autowired
     String url;
-
-    @Override
-    public int setContent() {
-        return R.layout.activity_index_detail;
-    }
+    @BindView(R.id.ll_back)
+    LinearLayout llBack;
+    @BindView(R.id.wv_index_detail)
+    WebView wvIndexDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +35,25 @@ public class IndexDetailActivity extends BaseActivity<IndexDetailBind> {
     }
 
     @Override
-    public void initData() {
+    protected int getLayoutId() {
+        return R.layout.activity_index_detail;
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
 
     }
 
     @Override
-    public void initEvent() {
-        bindingView.llBack.setOnClickListener(new View.OnClickListener() {
+    protected void initEvent(Bundle savedInstanceState) {
+        llBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        Log.d("abshdsadasdasdsa",url);
-        Log.d("UABSUHDSADSADSA","哈哈哈哈");
-        bindingView.wvIndexDetail.loadUrl(url);
+        wvIndexDetail.loadUrl("http://"+url);
     }
+
+
 }

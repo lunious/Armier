@@ -15,7 +15,9 @@ import okhttp3.OkHttpClient;
 
 public class App extends Application {
 
-    private Boolean isDebug = true;
+    //开发者模式开关
+    public static boolean isDebug = true;
+    public static String APP_NAME;
 
     @Override
     public void onCreate() {

@@ -1,27 +1,29 @@
 package com.lunioussky.armier.main.mui.lab.fragment;
 
-import com.lunioussky.armier.R;
-import com.lunioussky.armier.base.BaseTabFragment;
-import com.lunioussky.armier.databinding.LabFragmentBind;
+import android.os.Bundle;
 
+import com.lunioussky.armier.R;
+import com.lunioussky.armier.base.BaseFragment;
 /**
  * Author: lunious
  * Date: 2018/6/8 14:28
  * Description:
  */
-public class LabFragment extends BaseTabFragment<LabFragmentBind> {
+public class LabFragment extends BaseFragment {
+
+
     @Override
-    public int setContent() {
+    protected int getLayoutId() {
         return R.layout.fragment_lab;
     }
 
     @Override
-    public void initData() {
+    protected void initData(Bundle savedInstanceState) {
 
     }
 
     @Override
-    public void initEvent() {
+    protected void initEnvent(Bundle savedInstanceState) {
 
     }
 }

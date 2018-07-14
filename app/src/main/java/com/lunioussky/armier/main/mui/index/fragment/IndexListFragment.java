@@ -1,6 +1,8 @@
 package com.lunioussky.armier.main.mui.index.fragment;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -9,23 +11,32 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.classic.common.MultipleStatusView;
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.api.JyApi;
-import com.lunioussky.armier.base.BaseTabFragment;
-import com.lunioussky.armier.databinding.relaxListFragmentBind;
+import com.lunioussky.armier.base.BaseFragment;
 import com.lunioussky.armier.entity.IndexListBean;
 import com.lunioussky.armier.main.mui.index.adapter.IndexListAdapter;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
+
 import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.Unbinder;
 
 /**
  * Author: lunious
  * Date: 2018/7/13 10:26
  * Description:
  */
-public class IndexListFragment extends BaseTabFragment<relaxListFragmentBind> {
+public class IndexListFragment extends BaseFragment {
+
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+    @BindView(R.id.statusView)
+    MultipleStatusView statusView;
 
     private String mTitle = null;
     private IndexListAdapter mAdapter;
@@ -39,26 +50,15 @@ public class IndexListFragment extends BaseTabFragment<relaxListFragmentBind> {
     }
 
 
-    @Override
-    public int setContent() {
-        return R.layout.fragment_relax_list;
-    }
-
-    @Override
-    public void initData() {
-        initRecyclerView();
-        initAdapter();
-    }
-
     public void initRecyclerView() {
-        bindingView.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        bindingView.recyclerView.addOnItemTouchListener(new OnItemClickListener() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-//                IndexListBean bean = (IndexListBean) adapter.getData().get(position);
-//                String url = bean.getzDetailLink();
-//                ARouter.getInstance().build("/com/IndexDetailActivity").withString("url",url).navigation();
-                
+                IndexListBean bean = (IndexListBean) adapter.getData().get(position);
+                String url = bean.getzDetailLink();
+                ARouter.getInstance().build("/com/IndexDetailActivity").withString("url",url).navigation();
+
             }
         });
     }
@@ -67,24 +67,20 @@ public class IndexListFragment extends BaseTabFragment<relaxListFragmentBind> {
         mAdapter = new IndexListAdapter(R.layout.item_relax, mDataList);
         //设置列表动画
         mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
-        bindingView.recyclerView.setAdapter(mAdapter);
+        recyclerView.setAdapter(mAdapter);
         mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
                 page++;
                 requestData(false);
             }
-        }, bindingView.recyclerView);
+        }, recyclerView);
     }
 
-    @Override
-    public void initEvent() {
-        requestData(true);
-    }
 
     public void requestData(Boolean showLoading) {
         if (showLoading) {
-            bindingView.statusView.showLoading();
+            statusView.showLoading();
         }
         OkGo.<String>get(JyApi.indexList + mTitle + "&page=" + page)
                 .execute(new StringCallback() {
@@ -107,9 +103,26 @@ public class IndexListFragment extends BaseTabFragment<relaxListFragmentBind> {
                             mAdapter.loadMoreComplete();
                             mAdapter.notifyDataSetChanged();
 
-                            bindingView.statusView.showContent();
+                            statusView.showContent();
                         }
                     }
                 });
     }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_relax_list;
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+        initRecyclerView();
+        initAdapter();
+    }
+
+    @Override
+    protected void initEnvent(Bundle savedInstanceState) {
+        requestData(true);
+    }
+
 }
