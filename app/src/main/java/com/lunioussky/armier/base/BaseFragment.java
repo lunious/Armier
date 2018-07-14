@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * Author: lunious
  * Date: 2018/7/14 18:19
  * Description:
  */
-public abstract class BaseFragment extends Fragment {
-    public static final String TAG = BaseFragment.class.getSimpleName();
+public abstract class BaseFragment extends SwipeBackFragment {
     private Unbinder unbinder;
     private View rootView;
 

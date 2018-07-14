@@ -128,6 +128,7 @@ public class VideoListFragment extends BaseFragment {
         NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
     }
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_video_list;

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="main_theme_color">#21a9ff</color>
+    <color name="main_theme_color">#D33D3C</color>
 
-    <color name="colorPrimary">#21a9ff</color>
-    <color name="colorPrimaryDark">#21a9ff</color>
-    <color name="colorAccent">#21a9ff</color>
+    <color name="colorPrimary">#D33D3C</color>
+    <color name="colorPrimaryDark">#D33D3C</color>
+    <color name="colorAccent">#D33D3C</color>
 
 
     <color name="tab_icon_unselect">#c6c6c6</color>

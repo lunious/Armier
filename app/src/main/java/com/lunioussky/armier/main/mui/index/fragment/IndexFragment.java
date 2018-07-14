@@ -49,7 +49,7 @@ public class IndexFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_index;
+        return R.layout.fragment_index;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class IndexFragment extends BaseFragment {
                                 }
                             }
 
-                            mAdapter = new IndexFragmentAdapter(mList, getFragmentManager());
+                            mAdapter = new IndexFragmentAdapter(mList, getChildFragmentManager());
                             vpView.setAdapter(mAdapter);
                             tabLayout.setupWithViewPager(vpView);
 

@@ -17,7 +17,7 @@ public class App extends Application {
 
     //开发者模式开关
     public static boolean isDebug = true;
-    public static String APP_NAME;
+
 
     @Override
     public void onCreate() {

@@ -11,11 +11,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.lunioussky.armier.base.NoScrollViewPager
-            android:id="@+id/vp_main"
+        <FrameLayout
+            android:id="@+id/main_tab_container"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_height="@dimen/d0"
+            android:layout_weight="1"/>
+
 
         <View
             android:layout_width="match_parent"
