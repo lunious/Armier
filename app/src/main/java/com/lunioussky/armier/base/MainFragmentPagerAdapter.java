@@ -3,7 +3,6 @@ package com.lunioussky.armier.base;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
 import java.util.List;
 
 /**
@@ -12,6 +11,7 @@ import java.util.List;
  * Description:
  */
 public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
+
     private List<Fragment> fragments;
     public MainFragmentPagerAdapter(List<Fragment> fragments,FragmentManager fm) {
         super(fm);
@@ -27,4 +27,5 @@ public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return fragments.size();
     }
+
 }

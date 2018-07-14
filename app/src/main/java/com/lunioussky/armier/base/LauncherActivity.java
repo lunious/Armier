@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -23,10 +22,6 @@ public class LauncherActivity extends BaseActivity {
 
     @BindView(R.id.iv_ad)
     ImageView ivAd;
-    @BindView(R.id.gifImageView)
-    ImageView gifImageView;
-    @BindView(R.id.ll_bottom)
-    RelativeLayout llBottom;
     @BindView(R.id.tv_skip)
     TextView tvSkip;
     private Boolean isIn = false;
@@ -42,10 +37,6 @@ public class LauncherActivity extends BaseActivity {
         GlideApp.with(this)
                 .load("http://api.dujin.org/bing/1920.php")
                 .centerCrop()
-                .into(ivAd);
-        GlideApp.with(this)
-                .asGif()
-                .load(R.drawable.newlogo)
                 .into(ivAd);
     }
 

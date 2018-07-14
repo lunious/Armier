@@ -95,7 +95,6 @@ public class IndexFragment extends BaseFragment {
     }
 
 
-
     public void initTab() {
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);

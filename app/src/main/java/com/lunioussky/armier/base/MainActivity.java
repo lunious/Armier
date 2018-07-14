@@ -88,7 +88,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initEvent(Bundle savedInstanceState) {
-        vpMain.setCurrentItem(0);//默认显示第一页
+
+        vpMain.setCurrentItem(0);
 
         bottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
             @Override
@@ -102,8 +103,6 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onTabReselected(int position) {
-                mPagerAdapter.notifyDataSetChanged();
-                vpMain.setCurrentItem(position);
             }
         });
     }

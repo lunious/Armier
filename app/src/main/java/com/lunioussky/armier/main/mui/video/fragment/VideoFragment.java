@@ -66,7 +66,7 @@ public class VideoFragment extends BaseFragment {
                             mList.add(name);
                             mId.add(id);
                         }
-                        mAdapter = new VideoFragmentAdapter(mList, mId, getFragmentManager());
+                        mAdapter = new VideoFragmentAdapter(mList, mId,getFragmentManager());
                         vpVideo.setAdapter(mAdapter);
                         tabVideo.setupWithViewPager(vpVideo);
 

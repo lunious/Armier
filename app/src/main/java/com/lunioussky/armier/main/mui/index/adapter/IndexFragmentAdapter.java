@@ -3,6 +3,7 @@ package com.lunioussky.armier.main.mui.index.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.lunioussky.armier.main.mui.index.fragment.IndexListFragment;
 
