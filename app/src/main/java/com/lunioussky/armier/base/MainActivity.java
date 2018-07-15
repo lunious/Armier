@@ -10,6 +10,7 @@ import com.lunioussky.armier.R;
 @Route(path = "/com/MainActivity")
 public class MainActivity extends BaseActivity {
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -17,6 +18,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
+        //首页不可滑动推出
+        setSwipeBackEnable(false);
         if (savedInstanceState == null) {
             loadRootFragment(R.id.fragment_container, new MainFragment());
         }
@@ -28,5 +31,7 @@ public class MainActivity extends BaseActivity {
     protected void initEvent(Bundle savedInstanceState) {
 
     }
+
+
 
 }

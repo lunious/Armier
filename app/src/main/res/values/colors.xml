@@ -7,7 +7,7 @@
     <color name="colorPrimaryDark">#D33D3C</color>
     <color name="colorAccent">#D33D3C</color>
 
-
+    <color name="toast_background">#66000000</color>
     <color name="tab_icon_unselect">#c6c6c6</color>
     <color name="tab_text_unselect">#6c6c6c</color>
     <color name="main_status_red">#FF6666</color>

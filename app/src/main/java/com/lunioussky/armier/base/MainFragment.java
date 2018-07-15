@@ -2,11 +2,7 @@ package com.lunioussky.armier.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
 import com.lunioussky.armier.R;
 import com.lunioussky.armier.main.mui.index.fragment.IndexFragment;
 import com.lunioussky.armier.main.mui.lab.fragment.LabFragment;
@@ -14,7 +10,7 @@ import com.lunioussky.armier.main.mui.relax.fragment.RelaxFragment;
 import com.lunioussky.armier.main.mui.video.fragment.VideoFragment;
 import com.lunioussky.armier.main.view.bottomBar.BottomBar;
 import com.lunioussky.armier.main.view.bottomBar.BottomBarTab;
-
+import com.lunioussky.armier.util.ToastUtil;
 import butterknife.BindView;
 
 
@@ -102,6 +98,27 @@ public class MainFragment extends BaseFragment {
     @Override
     protected void initEnvent(Bundle savedInstanceState) {
 
+    }
+
+
+    // 再点一次退出程序时间设置
+    private static final long WAIT_TIME = 3000L;
+    private long TOUCH_TIME = 0;
+
+    /**
+     * 处理回退事件
+     *
+     * @return
+     */
+    @Override
+    public boolean onBackPressedSupport() {
+        if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+            _mActivity.finish();
+        } else {
+            TOUCH_TIME = System.currentTimeMillis();
+            ToastUtil.shortToast(getContext(), "再按一次退出程序");
+        }
+        return true;
     }
 
 }
