@@ -2,6 +2,7 @@ package com.lunioussky.armier.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.gyf.barlibrary.ImmersionBar;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -20,6 +21,8 @@ public abstract class BaseActivity extends SwipeBackActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //初始化ARouter注解
+        ARouter.getInstance().inject(this);
         //初始化，默认透明状态栏和黑色导航栏
         ImmersionBar.with(this).init();
         setContentView(getLayoutId());
